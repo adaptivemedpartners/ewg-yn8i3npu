@@ -174,6 +174,29 @@
     padding: 5px 12px;
     box-shadow: 0 0 12px rgba(244,114,182,0.25);
   }
+
+  .hero .glow-quote {
+    margin: 14px auto 0;
+    max-width: 26rem;
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(1.35rem, 4.2vw, 1.75rem);
+    line-height: 1.35;
+    font-style: normal;
+    color: transparent;
+    background: linear-gradient(90deg, #db2777 0%, #f472b6 40%, #fbbf24 70%, #be185d 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: sparkShimmer 4.5s linear infinite;
+    filter: drop-shadow(0 0 8px rgba(244, 114, 182, 0.35));
+    opacity: 0.95;
+  }
+  .hero .glow-quote-wrap {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(251, 207, 232, 0.75);
+  }
   .his {
     background: linear-gradient(90deg, #ecfdf5, #f0fdfa);
     border: 1px solid #6ee7b7; border-radius: 14px;
@@ -338,6 +361,8 @@
     .hero h1 { font-size: 1rem; }
     .hero p { font-size: 0.86rem; margin-top: 8px; }
     .pill { font-size: 0.7rem; padding: 4px 10px; }
+    .hero .glow-quote { font-size: clamp(1.15rem, 5.5vw, 1.45rem); }
+    .hero .glow-quote-wrap { margin-top: 10px; padding-top: 8px; }
     .his { padding: 10px 12px; font-size: 0.82rem; margin: 10px 0 12px; }
     .toolbar { gap: 8px; margin-bottom: 12px; }
     button {
@@ -382,7 +407,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero .script, .hero h1, .gate-card .script { animation: none; background-position: 40% 50%; }
+    .hero .script, .hero h1, .hero .glow-quote, .gate-card .script { animation: none; background-position: 40% 50%; }
     #toast { transition: none; }
   }
 
@@ -428,6 +453,9 @@
         <span class="pill">Mon–Fri workouts</span>
         <span class="pill">Deep-clean rhythm</span>
         <span class="pill">Week-by-week log</span>
+      </div>
+      <div class="glow-quote-wrap">
+        <p class="glow-quote" id="weeklyQuote" aria-live="polite"></p>
       </div>
     </header>
 
@@ -524,6 +552,44 @@
     var diff = day === 0 ? -6 : 1 - day;
     x.setDate(x.getDate() + diff);
     return x.getFullYear() + "-" + pad2(x.getMonth() + 1) + "-" + pad2(x.getDate());
+  }
+
+  /* Original Logbook-spirit lines — soft, warm, hers. Rotate by Monday week key. */
+  var GLOW_QUOTES = [
+    "Showing up for herself is already a kind of glow.",
+    "Quiet checkmarks. Soft resolve. Real becoming.",
+    "The work no one sees still makes her stronger.",
+    "A little sparkle each day lights a whole week.",
+    "She tends the small things — and becomes luminous.",
+    "Not perfect. Present. Softly becoming herself.",
+    "Strength lives in the gentle rhythm of care.",
+    "This week, she chooses herself — again and again."
+  ];
+
+  function hashWeekKey(key) {
+    var h = 0;
+    var s = String(key || "");
+    for (var i = 0; i < s.length; i++) {
+      h = ((h << 5) - h) + s.charCodeAt(i);
+      h |= 0;
+    }
+    return Math.abs(h);
+  }
+
+  function quoteForWeekKey(key) {
+    var idx = hashWeekKey(key) % GLOW_QUOTES.length;
+    return GLOW_QUOTES[idx];
+  }
+
+  function activeWeekKeyForQuote() {
+    if (archive && archive.currentKey) return archive.currentKey;
+    return mondayKey(new Date());
+  }
+
+  function refreshWeeklyQuote() {
+    var el = document.getElementById("weeklyQuote");
+    if (!el) return;
+    el.textContent = quoteForWeekKey(activeWeekKeyForQuote());
   }
 
   function parseKey(key) {
@@ -730,6 +796,7 @@
     fillTextareas(root);
     updatePastSelect();
     updateStatus();
+    refreshWeeklyQuote();
   }
 
   function persist() {
