@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="theme-color" content="#f472b6" />
+<meta name="mobile-web-app-capable" content="yes" />
+<title>Erica’s Weekly Glow List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --blush: #fff1f5;
+    --pink: #fbcfe8;
+    --rose: #f472b6;
+    --deep: #be185d;
+    --ink: #831843;
+    --muted: #9d174d99;
+    --cream: #fffafb;
+    --mint: #d1fae5;
+    --glow: 0 0 24px rgba(244, 114, 182, 0.45), 0 0 48px rgba(251, 207, 232, 0.55);
+    --card-glow: 0 8px 28px rgba(244, 114, 182, 0.18), 0 0 0 1px rgba(251, 207, 232, 0.9);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Quicksand", system-ui, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(ellipse 80% 50% at 10% 0%, #fce7f3 0%, transparent 55%),
+      radial-gradient(ellipse 70% 45% at 100% 10%, #fbcfe8 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 50% 100%, #fce7f3 0%, transparent 45%),
+      linear-gradient(180deg, #fffafb 0%, #fff1f5 40%, #fdf2f8 100%);
+    min-height: 100vh;
+    line-height: 1.45;
+  }
+  .deco {
+    position: fixed; pointer-events: none; z-index: 0; opacity: 0.55;
+    width: 88px; height: 88px; background-size: contain; background-repeat: no-repeat;
+    filter: drop-shadow(0 0 10px rgba(244,114,182,.35));
+  }
+  .deco.f1 { top: 18px; left: 12px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSI+CiAgPGcgb3BhY2l0eT0iLjkiPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iOCIgZmlsbD0iI0ZCNzE4NSIvPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSIxOCIgcj0iMTAiIGZpbGw9IiNGOUE4RDQiLz4KICAgIDxjaXJjbGUgY3g9IjQwIiBjeT0iNjIiIHI9IjEwIiBmaWxsPSIjRjlBOEQ0Ii8+CiAgICA8Y2lyY2xlIGN4PSIxOCIgY3k9IjQwIiByPSIxMCIgZmlsbD0iI0ZEQTRBRiIvPgogICAgPGNpcmNsZSBjeD0iNjIiIGN5PSI0MCIgcj0iMTAiIGZpbGw9IiNGREE0QUYiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICA8L2c+Cjwvc3ZnPg=='); }
+  .deco.f2 { top: 40px; right: 16px; width: 72px; height: 72px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSI+CiAgPGcgb3BhY2l0eT0iLjkiPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iOCIgZmlsbD0iI0ZCNzE4NSIvPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSIxOCIgcj0iMTAiIGZpbGw9IiNGOUE4RDQiLz4KICAgIDxjaXJjbGUgY3g9IjQwIiBjeT0iNjIiIHI9IjEwIiBmaWxsPSIjRjlBOEQ0Ii8+CiAgICA8Y2lyY2xlIGN4PSIxOCIgY3k9IjQwIiByPSIxMCIgZmlsbD0iI0ZEQTRBRiIvPgogICAgPGNpcmNsZSBjeD0iNjIiIGN5PSI0MCIgcj0iMTAiIGZpbGw9IiNGREE0QUYiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICA8L2c+Cjwvc3ZnPg=='); transform: rotate(25deg); }
+  .deco.f3 { bottom: 40px; left: 20px; width: 64px; height: 64px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSI+CiAgPHBhdGggZD0iTTEyIDQ4QzI4IDQwIDM2IDI4IDQyIDEyQzUwIDMwIDQ0IDQ0IDI4IDUyQzIyIDU0IDE2IDUyIDEyIDQ4WiIgZmlsbD0iIzg2RUZBQyIgb3BhY2l0eT0iLjU1Ii8+CiAgPHBhdGggZD0iTTQyIDEyQzM2IDI4IDI4IDQwIDEyIDQ4IiBzdHJva2U9IiM0QURFODAiIHN0cm9rZS13aWR0aD0iMS41IiBvcGFjaXR5PSIuNSIvPgo8L3N2Zz4='); }
+  .deco.f4 { bottom: 60px; right: 24px; width: 70px; height: 70px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSI+CiAgPGcgb3BhY2l0eT0iLjkiPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iOCIgZmlsbD0iI0ZCNzE4NSIvPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSIxOCIgcj0iMTAiIGZpbGw9IiNGOUE4RDQiLz4KICAgIDxjaXJjbGUgY3g9IjQwIiBjeT0iNjIiIHI9IjEwIiBmaWxsPSIjRjlBOEQ0Ii8+CiAgICA8Y2lyY2xlIGN4PSIxOCIgY3k9IjQwIiByPSIxMCIgZmlsbD0iI0ZEQTRBRiIvPgogICAgPGNpcmNsZSBjeD0iNjIiIGN5PSI0MCIgcj0iMTAiIGZpbGw9IiNGREE0QUYiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICA8L2c+Cjwvc3ZnPg=='); transform: rotate(-15deg); }
+
+  .page {
+    position: relative; z-index: 1;
+    max-width: 780px; margin: 0 auto;
+    padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(40px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  }
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-x: hidden; }
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    border-radius: 28px;
+    background: linear-gradient(145deg, #ffffff 0%, #fff1f5 45%, #fce7f3 100%);
+    box-shadow: var(--glow), 0 0 0 1px rgba(251, 191, 36, 0.28), 0 0 32px rgba(251, 191, 36, 0.18);
+    border: 1px solid rgba(251, 207, 232, 0.95);
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before, .hero::after {
+    content: ""; position: absolute; width: 120px; height: 120px;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSI+CiAgPGcgb3BhY2l0eT0iLjkiPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iOCIgZmlsbD0iI0ZCNzE4NSIvPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSIxOCIgcj0iMTAiIGZpbGw9IiNGOUE4RDQiLz4KICAgIDxjaXJjbGUgY3g9IjQwIiBjeT0iNjIiIHI9IjEwIiBmaWxsPSIjRjlBOEQ0Ii8+CiAgICA8Y2lyY2xlIGN4PSIxOCIgY3k9IjQwIiByPSIxMCIgZmlsbD0iI0ZEQTRBRiIvPgogICAgPGNpcmNsZSBjeD0iNjIiIGN5PSI0MCIgcj0iMTAiIGZpbGw9IiNGREE0QUYiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICA8L2c+Cjwvc3ZnPg=='); background-size: contain; background-repeat: no-repeat;
+    opacity: 0.35; pointer-events: none;
+  }
+  .hero::before { top: -20px; left: -10px; transform: rotate(-20deg); }
+  .hero::after { bottom: -24px; right: -8px; transform: rotate(30deg); }
+  @keyframes sparkShimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+  .hero .script {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(2.4rem, 7vw, 3.4rem);
+    margin: 0 0 4px; line-height: 1.15;
+    color: transparent;
+    background: linear-gradient(90deg, #f472b6 0%, #fbbf24 35%, #db2777 55%, #f472b6 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: sparkShimmer 3.2s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(244, 114, 182, 0.55)) drop-shadow(0 0 18px rgba(251, 191, 36, 0.35));
+  }
+  .hero h1 {
+    margin: 0; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: transparent;
+    background: linear-gradient(90deg, #db2777 0%, #fbbf24 40%, #be185d 70%, #f472b6 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: sparkShimmer 3.2s linear infinite;
+    filter: drop-shadow(0 0 8px rgba(244, 114, 182, 0.45)) drop-shadow(0 0 14px rgba(251, 191, 36, 0.28));
+  }
+  .hero p {
+    margin: 10px auto 0; max-width: 34rem; color: #9d174d; font-size: 0.92rem; opacity: 0.9;
+  }
+
+  .pill-row {
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 14px 0 6px;
+  }
+  .pill {
+    font-size: 0.75rem; font-weight: 650; color: #be185d;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid #f9a8d4; border-radius: 999px;
+    padding: 5px 12px;
+    box-shadow: 0 0 12px rgba(244,114,182,0.25);
+  }
+  .his {
+    background: linear-gradient(90deg, #ecfdf5, #f0fdfa);
+    border: 1px solid #6ee7b7; border-radius: 14px;
+    padding: 10px 14px; font-size: 0.86rem; color: #065f46; margin: 14px 0 16px;
+    box-shadow: 0 0 16px rgba(110, 231, 183, 0.25);
+  }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 16px; }
+  button {
+    border: none; border-radius: 999px; padding: 10px 16px; font-weight: 700;
+    font-family: inherit; cursor: pointer;
+    background: linear-gradient(135deg, #f472b6, #db2777);
+    color: #fff;
+    box-shadow: 0 0 18px rgba(244, 114, 182, 0.55);
+  }
+  button.secondary {
+    background: #fff; color: #be185d; border: 1px solid #f9a8d4;
+    box-shadow: 0 0 12px rgba(251, 207, 232, 0.6);
+  }
+  .week-meta {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;
+  }
+  @media (max-width: 560px) { .week-meta { grid-template-columns: 1fr; } }
+  label.field { display: block; font-size: 0.75rem; color: #be185d; font-weight: 700; margin-bottom: 4px; }
+  input.meta, textarea.item-text {
+    width: 100%; border: 1px solid #f9a8d4; border-radius: 12px;
+    padding: 10px 12px; font: inherit; color: var(--ink);
+    background: rgba(255,255,255,0.92);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8), 0 0 10px rgba(251,207,232,0.35);
+  }
+  input.meta:focus, textarea.item-text:focus {
+    outline: none; border-color: #f472b6;
+    box-shadow: 0 0 0 3px rgba(244,114,182,0.25), 0 0 18px rgba(244,114,182,0.35);
+  }
+
+  section.block {
+    border-radius: 22px; margin-bottom: 16px; overflow: hidden;
+    background: linear-gradient(180deg, #ffffff 0%, #fff7fb 100%);
+    box-shadow: var(--card-glow);
+    border: 1px solid #fbcfe8;
+  }
+  section.block > h2 {
+    margin: 0; padding: 14px 16px 10px;
+    font-size: 1.05rem; font-weight: 700; color: #be185d;
+    background: linear-gradient(90deg, #fce7f3, #fff1f5 60%, #ffffff);
+    border-bottom: 1px solid #fbcfe8;
+    text-shadow: 0 0 12px rgba(244,114,182,0.35);
+    display: flex; align-items: center; gap: 8px;
+  }
+  section.block > h2 .emoji { filter: drop-shadow(0 0 6px rgba(244,114,182,.5)); }
+  section.block > .sub {
+    margin: 0; padding: 6px 16px 0; font-size: 0.8rem; color: #9d174d; opacity: 0.85;
+  }
+  .day-card {
+    border-top: 1px solid #fce7f3; padding: 12px 14px 14px;
+  }
+  .day-card:nth-child(odd) { background: rgba(255, 241, 245, 0.55); }
+  .day-card:nth-child(even) { background: rgba(255,255,255,0.7); }
+  .day-card h3 {
+    margin: 0 0 8px; font-size: 0.95rem; color: #db2777;
+    display: flex; justify-content: space-between; gap: 8px; align-items: baseline;
+  }
+  .day-card h3 span.tag {
+    font-size: 0.7rem; font-weight: 700; color: #be185d;
+    background: #fce7f3; border: 1px solid #f9a8d4; border-radius: 999px;
+    padding: 2px 9px;
+    box-shadow: 0 0 10px rgba(244,114,182,0.25);
+  }
+  ul.items { list-style: none; margin: 0; padding: 0; }
+  li.row {
+    display: grid; grid-template-columns: 28px 1fr 32px; gap: 8px;
+    align-items: start; padding: 6px 0; border-bottom: 1px dashed #fbcfe8;
+  }
+  li.row:last-child { border-bottom: none; }
+  li.row input[type=checkbox] {
+    width: 18px; height: 18px; margin-top: 9px; accent-color: #ec4899;
+  }
+  li.row .remove {
+    border: none; background: transparent; color: #f9a8d4; font-size: 1.15rem;
+    padding: 4px; cursor: pointer;
+  }
+  li.row .remove:hover { color: #db2777; }
+  .add-row {
+    margin-top: 8px; width: 100%;
+    border: 1px dashed #f9a8d4 !important;
+    background: #fff1f5 !important; color: #be185d !important;
+    box-shadow: none !important;
+  }
+  footer {
+    text-align: center; margin-top: 20px; font-size: 0.8rem; color: #9d174d; opacity: 0.8;
+  }
+  footer .heart {
+    font-family: "Great Vibes", cursive; font-size: 1.4rem; color: #f472b6;
+    text-shadow: 0 0 12px rgba(244,114,182,0.6);
+  }
+
+
+  /* Phone-first (iPhone Pro Max logical width 430; pad up to ~480) */
+  @media (max-width: 480px) {
+    .deco { width: 48px; height: 48px; opacity: 0.35; }
+    .deco.f1 { top: 8px; left: 4px; width: 44px; height: 44px; }
+    .deco.f2 { top: 12px; right: 4px; width: 40px; height: 40px; }
+    .deco.f3, .deco.f4 { display: none; }
+    .page {
+      max-width: 100%;
+      padding: max(12px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
+    }
+    .hero {
+      padding: 18px 14px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .hero::before, .hero::after { width: 72px; height: 72px; opacity: 0.22; }
+    .hero .script { font-size: clamp(2rem, 9vw, 2.6rem); }
+    .hero h1 { font-size: 1rem; }
+    .hero p { font-size: 0.86rem; margin-top: 8px; }
+    .pill { font-size: 0.7rem; padding: 4px 10px; }
+    .his { padding: 10px 12px; font-size: 0.82rem; margin: 10px 0 12px; }
+    .toolbar { gap: 8px; margin-bottom: 12px; }
+    button {
+      min-height: 44px;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      touch-action: manipulation;
+    }
+    .week-meta { gap: 8px; margin-bottom: 12px; }
+    input.meta { min-height: 44px; padding: 12px; font-size: 16px; }
+    section.block { border-radius: 18px; margin-bottom: 12px; }
+    section.block > h2 { padding: 12px 14px 8px; font-size: 1rem; }
+    .day-card { padding: 10px 12px 12px; }
+    li.row {
+      grid-template-columns: 44px 1fr 44px;
+      gap: 4px;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 0;
+    }
+    li.row input[type=checkbox] {
+      width: 22px; height: 22px; margin: 0 auto;
+      min-width: 22px; min-height: 22px;
+    }
+    li.row .remove {
+      min-width: 44px; min-height: 44px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; padding: 0;
+    }
+    textarea.item-text {
+      min-height: 44px; padding: 10px 10px; font-size: 16px;
+    }
+    .add-row { min-height: 44px; }
+  }
+  @media (max-width: 430px) {
+    .deco.f1, .deco.f2 { opacity: 0.28; width: 36px; height: 36px; }
+    .hero { padding: 14px 12px 12px; border-radius: 16px; }
+    .hero::before { top: -28px; left: -18px; }
+    .hero::after { bottom: -32px; right: -16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero .script, .hero h1 { animation: none; background-position: 40% 50%; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .deco, .toolbar, .remove, .add-row, .his { display: none !important; }
+    .hero, section.block {
+      box-shadow: none !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    section.block { break-inside: avoid; }
+    input.meta, textarea.item-text { border: none; background: transparent; box-shadow: none; padding-left: 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="deco f1" aria-hidden="true"></div>
+  <div class="deco f2" aria-hidden="true"></div>
+  <div class="deco f3" aria-hidden="true"></div>
+  <div class="deco f4" aria-hidden="true"></div>
+  <div class="page">
+    <header class="hero">
+      <p class="script">For Erica</p>
+      <h1>Weekly Glow List</h1>
+      <p>Pretty checkmarks for workouts + house sparkle days. Edit any line — it’s hers to make perfect.</p>
+      <div class="pill-row">
+        <span class="pill">Mon–Fri workouts</span>
+        <span class="pill">Deep-clean rhythm</span>
+        <span class="pill">Monthly sparkle</span>
+      </div>
+    </header>
+
+    <div class="his">
+      <strong>Mike’s lane (not on her list):</strong> dishes · laundry · pool · flowers outside.
+    </div>
+
+    <div class="toolbar">
+      <button type="button" id="btnPrint">Print / Save pretty PDF</button>
+      <button type="button" class="secondary" id="btnClearChecks">Clear checkmarks</button>
+      <button type="button" class="secondary" id="btnReset">Reset to draft</button>
+    </div>
+
+    <div class="week-meta">
+      <div>
+        <label class="field" for="weekOf">Week of</label>
+        <input class="meta" id="weekOf" type="text" placeholder="e.g. Sep 15 – Sep 21" />
+      </div>
+      <div>
+        <label class="field" for="notes">Pretty notes</label>
+        <input class="meta" id="notes" type="text" placeholder="Anything for this week…" />
+      </div>
+    </div>
+
+    <div id="root"></div>
+    <footer>
+      <div class="heart">with love</div>
+      Saves in this browser · Friday clean + workouts left open for her words
+    </footer>
+  </div>
+<script>
+(function () {
+  var KEY = "erica_weekly_glow_v3";
+  var WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+
+  function defaultState() {
+    return {
+      weekOf: "",
+      notes: "",
+      workouts: {
+        Monday:    [{ text: "Workout (fill in)", done: false }],
+        Tuesday:   [{ text: "Workout (fill in)", done: false }],
+        Wednesday: [{ text: "Workout (fill in)", done: false }],
+        Thursday:  [{ text: "Workout (fill in)", done: false }],
+        Friday:    [{ text: "Workout (fill in)", done: false }]
+      },
+      cleaning: {
+        Monday:    [{ text: "Bathroom glow-up", done: false }],
+        Tuesday:   [{ text: "Baseboards / floorboards", done: false }],
+        Wednesday: [{ text: "Mop + vacuum", done: false }],
+        Thursday:  [{ text: "Dust the house", done: false }],
+        Friday:    [{ text: "Friday deep-clean (she picks)", done: false }]
+      },
+      monthly: [
+        { text: "Declutter a zone (closet / pantry / shelf…)", done: false },
+        { text: "Paint touch-up / refresh a spot when she’s in the mode", done: false },
+        { text: "Other monthly / quarterly sparkle project…", done: false }
+      ],
+      extras: [
+        { text: "", done: false }
+      ]
+    };
+  }
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw) return defaultState();
+      var o = JSON.parse(raw);
+      if (!o || !o.workouts || !o.cleaning) return defaultState();
+      return o;
+    } catch (e) { return defaultState(); }
+  }
+  function save(state) { localStorage.setItem(KEY, JSON.stringify(state)); }
+
+  var state = load();
+  var root = document.getElementById("root");
+
+  function rowHtml(section, dayOrNull, idx, item) {
+    var dayAttr = dayOrNull != null ? (' data-day="' + dayOrNull + '"') : "";
+    return '<li class="row">' +
+      '<input type="checkbox"' + (item.done ? " checked" : "") +
+        ' data-sec="' + section + '"' + dayAttr + ' data-idx="' + idx + '" />' +
+      '<textarea class="item-text" rows="1" data-sec="' + section + '"' + dayAttr +
+        ' data-idx="' + idx + '" placeholder="Add / edit…"></textarea>' +
+      '<button type="button" class="remove" title="Remove" data-sec="' + section + '"' +
+        dayAttr + ' data-idx="' + idx + '">×</button>' +
+      '</li>';
+  }
+
+  function fillTextareas(scope) {
+    scope.querySelectorAll("textarea.item-text").forEach(function (ta) {
+      var sec = ta.getAttribute("data-sec");
+      var day = ta.getAttribute("data-day");
+      var idx = +ta.getAttribute("data-idx");
+      var item = day != null ? state[sec][day][idx] : state[sec][idx];
+      ta.value = (item && item.text) || "";
+      ta.style.height = "auto";
+      ta.style.height = Math.min(120, ta.scrollHeight) + "px";
+    });
+  }
+
+  function renderDayBlock(title, emoji, sectionKey, tag) {
+    var html = '<section class="block"><h2><span class="emoji">' + emoji + '</span> ' + title + '</h2>';
+    if (tag) html += '<p class="sub">' + tag + '</p>';
+    html += '<div class="day-grid">';
+    WEEKDAYS.forEach(function (day) {
+      html += '<div class="day-card"><h3>' + day + ' <span class="tag">weekday</span></h3><ul class="items">';
+      (state[sectionKey][day] || []).forEach(function (item, idx) {
+        html += rowHtml(sectionKey, day, idx, item);
+      });
+      html += '</ul><button type="button" class="add-row" data-add-sec="' + sectionKey +
+        '" data-add-day="' + day + '">+ Add line</button></div>';
+    });
+    html += '</div></section>';
+    return html;
+  }
+
+  function renderListBlock(title, emoji, sectionKey, sub) {
+    var html = '<section class="block"><h2><span class="emoji">' + emoji + '</span> ' + title + '</h2>';
+    if (sub) html += '<p class="sub">' + sub + '</p>';
+    html += '<div class="day-card" style="border-top:none"><ul class="items">';
+    (state[sectionKey] || []).forEach(function (item, idx) {
+      html += rowHtml(sectionKey, null, idx, item);
+    });
+    html += '</ul><button type="button" class="add-row" data-add-sec="' + sectionKey +
+      '">+ Add line</button></div></section>';
+    return html;
+  }
+
+  function render() {
+    document.getElementById("weekOf").value = state.weekOf || "";
+    document.getElementById("notes").value = state.notes || "";
+    root.innerHTML =
+      renderDayBlock("Workouts", "💪", "workouts", "Weekdays only — weekends off unless she adds something.") +
+      renderDayBlock("House sparkle rhythm", "✨", "cleaning", "Her preferred weekday split — rewrite any day.") +
+      renderListBlock("Monthly / quarterly sparkle", "🌸", "monthly",
+        "Not every week — when she’s in the mode: declutter, paint, bigger resets.") +
+      renderListBlock("Extra this week", "💕", "extras", "Anything else she wants on the list.");
+    fillTextareas(root);
+  }
+
+  function getItem(sec, day, idx) {
+    return day != null ? state[sec][day][idx] : state[sec][idx];
+  }
+  function getList(sec, day) {
+    return day != null ? state[sec][day] : state[sec];
+  }
+
+  root.addEventListener("change", function (e) {
+    var t = e.target;
+    if (!t.matches('input[type=checkbox][data-sec]')) return;
+    var item = getItem(t.getAttribute("data-sec"), t.getAttribute("data-day"), +t.getAttribute("data-idx"));
+    if (item) { item.done = !!t.checked; save(state); }
+  });
+  root.addEventListener("input", function (e) {
+    var t = e.target;
+    if (!t.matches("textarea.item-text")) return;
+    var item = getItem(t.getAttribute("data-sec"), t.getAttribute("data-day"), +t.getAttribute("data-idx"));
+    if (item) {
+      item.text = t.value;
+      save(state);
+      t.style.height = "auto";
+      t.style.height = Math.min(120, t.scrollHeight) + "px";
+    }
+  });
+  root.addEventListener("click", function (e) {
+    var add = e.target.closest("[data-add-sec]");
+    if (add) {
+      var sec = add.getAttribute("data-add-sec");
+      var day = add.getAttribute("data-add-day");
+      getList(sec, day).push({ text: "", done: false });
+      save(state); render();
+      return;
+    }
+    var rm = e.target.closest(".remove");
+    if (!rm) return;
+    var sec = rm.getAttribute("data-sec");
+    var day = rm.getAttribute("data-day");
+    var idx = +rm.getAttribute("data-idx");
+    var list = getList(sec, day);
+    list.splice(idx, 1);
+    if (!list.length) list.push({ text: "", done: false });
+    save(state); render();
+  });
+
+  document.getElementById("weekOf").addEventListener("input", function (e) {
+    state.weekOf = e.target.value; save(state);
+  });
+  document.getElementById("notes").addEventListener("input", function (e) {
+    state.notes = e.target.value; save(state);
+  });
+  document.getElementById("btnPrint").addEventListener("click", function () { window.print(); });
+  document.getElementById("btnClearChecks").addEventListener("click", function () {
+    function clearList(list) { list.forEach(function (it) { it.done = false; }); }
+    WEEKDAYS.forEach(function (d) {
+      clearList(state.workouts[d] || []);
+      clearList(state.cleaning[d] || []);
+    });
+    clearList(state.monthly || []);
+    clearList(state.extras || []);
+    save(state); render();
+  });
+  document.getElementById("btnReset").addEventListener("click", function () {
+    if (!confirm("Reset to the pretty draft (clears edits in this browser)?")) return;
+    state = defaultState();
+    save(state); render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
