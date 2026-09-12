@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-<meta name="theme-color" content="#f472b6" />
+<meta name="theme-color" content="#f9a8d4" />
 <meta name="mobile-web-app-capable" content="yes" />
 <title>Erica’s Weekly Glow List</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,16 +14,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --blush: #fff1f5;
-    --pink: #fbcfe8;
-    --rose: #f472b6;
-    --deep: #be185d;
+    --blush: #fff7fa;
+    --pink: #fce7f3;
+    --rose: #f9a8d4;
+    --deep: #9d174d;
     --ink: #831843;
-    --muted: #9d174d99;
-    --cream: #fffafb;
+    --muted: #9d174d88;
+    --cream: #fffbfe;
     --mint: #d1fae5;
-    --glow: 0 0 24px rgba(244, 114, 182, 0.45), 0 0 48px rgba(251, 207, 232, 0.55);
-    --card-glow: 0 8px 28px rgba(244, 114, 182, 0.18), 0 0 0 1px rgba(251, 207, 232, 0.9);
+    --glow: 0 0 18px rgba(251, 207, 232, 0.35), 0 0 36px rgba(252, 231, 243, 0.4);
+    --card-glow: 0 6px 22px rgba(190, 24, 93, 0.08), 0 0 0 1px rgba(251, 207, 232, 0.85);
   }
   * { box-sizing: border-box; }
   body {
@@ -31,17 +31,18 @@
     font-family: "Quicksand", system-ui, sans-serif;
     color: var(--ink);
     background:
-      radial-gradient(ellipse 80% 50% at 10% 0%, #fce7f3 0%, transparent 55%),
-      radial-gradient(ellipse 70% 45% at 100% 10%, #fbcfe8 0%, transparent 50%),
-      radial-gradient(ellipse 60% 40% at 50% 100%, #fce7f3 0%, transparent 45%),
-      linear-gradient(180deg, #fffafb 0%, #fff1f5 40%, #fdf2f8 100%);
+      radial-gradient(ellipse 80% 50% at 10% 0%, #fdf2f8 0%, transparent 55%),
+      radial-gradient(ellipse 70% 45% at 100% 10%, #fce7f3 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 50% 100%, #fff1f5 0%, transparent 45%),
+      linear-gradient(180deg, #fffbfe 0%, #fff7fa 40%, #fdf2f8 100%);
     min-height: 100vh;
     line-height: 1.45;
+    overflow-x: hidden;
   }
   .deco {
-    position: fixed; pointer-events: none; z-index: 0; opacity: 0.55;
+    position: fixed; pointer-events: none; z-index: 0; opacity: 0.38;
     width: 88px; height: 88px; background-size: contain; background-repeat: no-repeat;
-    filter: drop-shadow(0 0 10px rgba(244,114,182,.35));
+    filter: drop-shadow(0 0 8px rgba(244,114,182,.18));
   }
   .deco.f1 { top: 18px; left: 12px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSI+CiAgPGcgb3BhY2l0eT0iLjkiPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iOCIgZmlsbD0iI0ZCNzE4NSIvPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSIxOCIgcj0iMTAiIGZpbGw9IiNGOUE4RDQiLz4KICAgIDxjaXJjbGUgY3g9IjQwIiBjeT0iNjIiIHI9IjEwIiBmaWxsPSIjRjlBOEQ0Ii8+CiAgICA8Y2lyY2xlIGN4PSIxOCIgY3k9IjQwIiByPSIxMCIgZmlsbD0iI0ZEQTRBRiIvPgogICAgPGNpcmNsZSBjeD0iNjIiIGN5PSI0MCIgcj0iMTAiIGZpbGw9IiNGREE0QUYiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICA8L2c+Cjwvc3ZnPg=='); }
   .deco.f2 { top: 40px; right: 16px; width: 72px; height: 72px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSI+CiAgPGcgb3BhY2l0eT0iLjkiPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iOCIgZmlsbD0iI0ZCNzE4NSIvPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSIxOCIgcj0iMTAiIGZpbGw9IiNGOUE4RDQiLz4KICAgIDxjaXJjbGUgY3g9IjQwIiBjeT0iNjIiIHI9IjEwIiBmaWxsPSIjRjlBOEQ0Ii8+CiAgICA8Y2lyY2xlIGN4PSIxOCIgY3k9IjQwIiByPSIxMCIgZmlsbD0iI0ZEQTRBRiIvPgogICAgPGNpcmNsZSBjeD0iNjIiIGN5PSI0MCIgcj0iMTAiIGZpbGw9IiNGREE0QUYiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICA8L2c+Cjwvc3ZnPg=='); transform: rotate(25deg); }
@@ -54,80 +55,22 @@
     padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(40px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
   }
   html { -webkit-text-size-adjust: 100%; }
-  body { overflow-x: hidden; }
-  body.locked .page { display: none !important; }
-  body.locked .deco { opacity: 0.35; }
-
-  /* Unlock gate */
-  #gate {
-    display: none;
-    position: fixed; inset: 0; z-index: 50;
-    align-items: center; justify-content: center;
-    padding: max(20px, env(safe-area-inset-top)) 18px max(28px, env(safe-area-inset-bottom));
-    background:
-      radial-gradient(ellipse 80% 50% at 20% 10%, #fce7f3 0%, transparent 55%),
-      radial-gradient(ellipse 70% 45% at 90% 20%, #fbcfe8 0%, transparent 50%),
-      linear-gradient(180deg, #fffafb 0%, #fff1f5 50%, #fdf2f8 100%);
-  }
-  body.locked #gate { display: flex; }
-  .gate-card {
-    width: 100%; max-width: 380px;
-    text-align: center;
-    padding: 28px 22px 24px;
-    border-radius: 28px;
-    background: linear-gradient(145deg, #ffffff 0%, #fff1f5 45%, #fce7f3 100%);
-    box-shadow: var(--glow), 0 0 0 1px rgba(251, 191, 36, 0.28), 0 0 32px rgba(251, 191, 36, 0.18);
-    border: 1px solid rgba(251, 207, 232, 0.95);
-  }
-  .gate-card .script {
-    font-family: "Great Vibes", cursive;
-    font-size: 2.4rem; margin: 0 0 4px; line-height: 1.15;
-    color: transparent;
-    background: linear-gradient(90deg, #f472b6 0%, #fbbf24 35%, #db2777 55%, #f472b6 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: sparkShimmer 3.2s linear infinite;
-    filter: drop-shadow(0 0 10px rgba(244, 114, 182, 0.55));
-  }
-  .gate-card h2 {
-    margin: 0 0 8px; font-size: 1.05rem; font-weight: 700;
-    letter-spacing: 0.04em; text-transform: uppercase; color: #be185d;
-  }
-  .gate-card p.hint { margin: 0 0 16px; font-size: 0.86rem; color: #9d174d; opacity: 0.9; }
-  .gate-card input[type=password] {
-    width: 100%; border: 1px solid #f9a8d4; border-radius: 14px;
-    padding: 14px 14px; font: inherit; font-size: 16px; color: var(--ink);
-    background: rgba(255,255,255,0.95);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8), 0 0 12px rgba(251,207,232,0.4);
-    margin-bottom: 10px; text-align: center; letter-spacing: 0.06em;
-  }
-  .gate-card input[type=password]:focus {
-    outline: none; border-color: #f472b6;
-    box-shadow: 0 0 0 3px rgba(244,114,182,0.25), 0 0 18px rgba(244,114,182,0.35);
-  }
-  .gate-card .gate-err {
-    min-height: 1.2em; margin: 0 0 10px; font-size: 0.82rem; color: #be185d; font-weight: 650;
-  }
-  .gate-card button#btnUnlock {
-    width: 100%; min-height: 48px; font-size: 1rem;
-  }
 
   .hero {
     text-align: center;
-    padding: 28px 20px 22px;
-    border-radius: 28px;
-    background: linear-gradient(145deg, #ffffff 0%, #fff1f5 45%, #fce7f3 100%);
-    box-shadow: var(--glow), 0 0 0 1px rgba(251, 191, 36, 0.28), 0 0 32px rgba(251, 191, 36, 0.18);
-    border: 1px solid rgba(251, 207, 232, 0.95);
-    margin-bottom: 18px;
+    padding: 24px 18px 18px;
+    border-radius: 26px;
+    background: linear-gradient(145deg, #ffffff 0%, #fff7fa 50%, #fdf2f8 100%);
+    box-shadow: var(--glow), 0 0 0 1px rgba(251, 207, 232, 0.55);
+    border: 1px solid rgba(251, 207, 232, 0.9);
+    margin-bottom: 14px;
     position: relative;
     overflow: hidden;
   }
   .hero::before, .hero::after {
-    content: ""; position: absolute; width: 120px; height: 120px;
+    content: ""; position: absolute; width: 100px; height: 100px;
     background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSI+CiAgPGcgb3BhY2l0eT0iLjkiPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iOCIgZmlsbD0iI0ZCNzE4NSIvPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSIxOCIgcj0iMTAiIGZpbGw9IiNGOUE4RDQiLz4KICAgIDxjaXJjbGUgY3g9IjQwIiBjeT0iNjIiIHI9IjEwIiBmaWxsPSIjRjlBOEQ0Ii8+CiAgICA8Y2lyY2xlIGN4PSIxOCIgY3k9IjQwIiByPSIxMCIgZmlsbD0iI0ZEQTRBRiIvPgogICAgPGNpcmNsZSBjeD0iNjIiIGN5PSI0MCIgcj0iMTAiIGZpbGw9IiNGREE0QUYiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICA8L2c+Cjwvc3ZnPg=='); background-size: contain; background-repeat: no-repeat;
-    opacity: 0.35; pointer-events: none;
+    opacity: 0.22; pointer-events: none;
   }
   .hero::before { top: -20px; left: -10px; transform: rotate(-20deg); }
   .hero::after { bottom: -24px; right: -8px; transform: rotate(30deg); }
@@ -137,78 +80,70 @@
   }
   .hero .script {
     font-family: "Great Vibes", cursive;
-    font-size: clamp(2.4rem, 7vw, 3.4rem);
+    font-size: clamp(2.2rem, 6.5vw, 3.1rem);
     margin: 0 0 4px; line-height: 1.15;
     color: transparent;
-    background: linear-gradient(90deg, #f472b6 0%, #fbbf24 35%, #db2777 55%, #f472b6 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: sparkShimmer 3.2s linear infinite;
-    filter: drop-shadow(0 0 10px rgba(244, 114, 182, 0.55)) drop-shadow(0 0 18px rgba(251, 191, 36, 0.35));
-  }
-  .hero h1 {
-    margin: 0; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: transparent;
-    background: linear-gradient(90deg, #db2777 0%, #fbbf24 40%, #be185d 70%, #f472b6 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: sparkShimmer 3.2s linear infinite;
-    filter: drop-shadow(0 0 8px rgba(244, 114, 182, 0.45)) drop-shadow(0 0 14px rgba(251, 191, 36, 0.28));
-  }
-  .hero p {
-    margin: 10px auto 0; max-width: 34rem; color: #9d174d; font-size: 0.92rem; opacity: 0.9;
-  }
-
-  .pill-row {
-    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 14px 0 6px;
-  }
-  .pill {
-    font-size: 0.75rem; font-weight: 650; color: #be185d;
-    background: rgba(255,255,255,0.85);
-    border: 1px solid #f9a8d4; border-radius: 999px;
-    padding: 5px 12px;
-    box-shadow: 0 0 12px rgba(244,114,182,0.25);
-  }
-
-  .hero .glow-quote {
-    margin: 14px auto 0;
-    max-width: 26rem;
-    font-family: "Great Vibes", cursive;
-    font-size: clamp(1.35rem, 4.2vw, 1.75rem);
-    line-height: 1.35;
-    font-style: normal;
-    color: transparent;
-    background: linear-gradient(90deg, #db2777 0%, #f472b6 40%, #fbbf24 70%, #be185d 100%);
+    background: linear-gradient(90deg, #db2777 0%, #f9a8d4 40%, #fbbf24 70%, #be185d 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: sparkShimmer 4.5s linear infinite;
-    filter: drop-shadow(0 0 8px rgba(244, 114, 182, 0.35));
+    filter: drop-shadow(0 0 6px rgba(244, 114, 182, 0.28));
+  }
+  .hero h1 {
+    margin: 0; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #9d174d;
+  }
+  .hero p {
+    margin: 10px auto 0; max-width: 34rem; color: #9d174d; font-size: 0.9rem; opacity: 0.88;
+  }
+
+  .pill-row {
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 12px 0 4px;
+  }
+  .pill {
+    font-size: 0.74rem; font-weight: 650; color: #9d174d;
+    background: rgba(255,255,255,0.9);
+    border: 1px solid #fbcfe8; border-radius: 999px;
+    padding: 5px 12px;
+    box-shadow: 0 0 8px rgba(251,207,232,0.35);
+  }
+
+  .hero .glow-quote {
+    margin: 12px auto 0;
+    max-width: 26rem;
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(1.3rem, 4vw, 1.65rem);
+    line-height: 1.35;
+    color: transparent;
+    background: linear-gradient(90deg, #be185d 0%, #f472b6 45%, #fbbf24 80%, #9d174d 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: sparkShimmer 5.5s linear infinite;
+    filter: drop-shadow(0 0 5px rgba(244, 114, 182, 0.22));
     opacity: 0.95;
   }
   .hero .glow-quote-wrap {
-    margin-top: 12px;
+    margin-top: 10px;
     padding-top: 10px;
-    border-top: 1px solid rgba(251, 207, 232, 0.75);
+    border-top: 1px solid rgba(251, 207, 232, 0.65);
   }
   .his {
     background: linear-gradient(90deg, #ecfdf5, #f0fdfa);
-    border: 1px solid #6ee7b7; border-radius: 14px;
-    padding: 10px 14px; font-size: 0.86rem; color: #065f46; margin: 14px 0 16px;
-    box-shadow: 0 0 16px rgba(110, 231, 183, 0.25);
+    border: 1px solid #a7f3d0; border-radius: 14px;
+    padding: 10px 14px; font-size: 0.86rem; color: #065f46; margin: 12px 0 14px;
+    box-shadow: 0 0 12px rgba(110, 231, 183, 0.18);
   }
   .week-bar {
     display: flex; flex-direction: column; gap: 10px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     padding: 12px 12px 14px;
     border-radius: 18px;
-    background: linear-gradient(180deg, #ffffff 0%, #fff7fb 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #fffafc 100%);
     border: 1px solid #fbcfe8;
     box-shadow: var(--card-glow);
   }
@@ -223,82 +158,111 @@
     padding: 12px; font: inherit; font-size: 16px; color: var(--ink);
     background: rgba(255,255,255,0.95);
     min-height: 44px;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8), 0 0 10px rgba(251,207,232,0.35);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8);
   }
   .week-bar select#pastWeeks:focus {
-    outline: none; border-color: #f472b6;
-    box-shadow: 0 0 0 3px rgba(244,114,182,0.25);
+    outline: none; border-color: #f9a8d4;
+    box-shadow: 0 0 0 3px rgba(249,168,212,0.28);
   }
   .status-chip {
-    text-align: center; font-size: 0.78rem; font-weight: 650; color: #be185d;
+    text-align: center; font-size: 0.78rem; font-weight: 650; color: #9d174d;
     opacity: 0.9;
   }
-  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 16px; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 14px; }
   button {
     border: none; border-radius: 999px; padding: 10px 16px; font-weight: 700;
     font-family: inherit; cursor: pointer;
-    background: linear-gradient(135deg, #f472b6, #db2777);
+    background: linear-gradient(135deg, #f9a8d4, #db2777);
     color: #fff;
-    box-shadow: 0 0 18px rgba(244, 114, 182, 0.55);
+    box-shadow: 0 0 14px rgba(244, 114, 182, 0.32);
   }
   button.secondary {
-    background: #fff; color: #be185d; border: 1px solid #f9a8d4;
-    box-shadow: 0 0 12px rgba(251, 207, 232, 0.6);
+    background: #fff; color: #9d174d; border: 1px solid #f9a8d4;
+    box-shadow: 0 0 8px rgba(251, 207, 232, 0.45);
   }
   button:disabled { opacity: 0.55; cursor: default; }
   .week-meta {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px;
   }
   @media (max-width: 560px) { .week-meta { grid-template-columns: 1fr; } }
-  label.field { display: block; font-size: 0.75rem; color: #be185d; font-weight: 700; margin-bottom: 4px; }
+  label.field { display: block; font-size: 0.75rem; color: #9d174d; font-weight: 700; margin-bottom: 4px; }
   input.meta, textarea.item-text {
     width: 100%; border: 1px solid #f9a8d4; border-radius: 12px;
     padding: 10px 12px; font: inherit; color: var(--ink);
     background: rgba(255,255,255,0.92);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8), 0 0 10px rgba(251,207,232,0.35);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8);
   }
   input.meta:focus, textarea.item-text:focus {
     outline: none; border-color: #f472b6;
-    box-shadow: 0 0 0 3px rgba(244,114,182,0.25), 0 0 18px rgba(244,114,182,0.35);
+    box-shadow: 0 0 0 3px rgba(249,168,212,0.28);
   }
 
-  section.block {
-    border-radius: 22px; margin-bottom: 16px; overflow: hidden;
-    background: linear-gradient(180deg, #ffffff 0%, #fff7fb 100%);
+  /* Day tabs */
+  .day-tabs {
+    display: flex; gap: 6px; flex-wrap: nowrap;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin: 0 0 14px; padding: 2px 2px 6px;
+  }
+  .day-tabs::-webkit-scrollbar { display: none; }
+  .day-tab {
+    flex: 1 1 0; min-width: 40px;
+    border: 1px solid #fbcfe8;
+    background: rgba(255,255,255,0.92);
+    color: #9d174d;
+    border-radius: 999px;
+    padding: 10px 6px;
+    font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 0 6px rgba(251,207,232,0.3);
+    white-space: nowrap;
+    text-align: center;
+  }
+  .day-tab.active {
+    background: linear-gradient(135deg, #fbcfe8, #f9a8d4);
+    color: #831843;
+    border-color: #f9a8d4;
+    box-shadow: 0 0 12px rgba(244,114,182,0.28);
+  }
+  .day-tab.sparkle-tab {
+    flex: 1.15 1 0; min-width: 52px;
+    font-size: 0.72rem;
+  }
+  .day-panel-title {
+    text-align: center;
+    font-size: 0.95rem; font-weight: 700; color: #9d174d;
+    margin: 0 0 12px;
+  }
+  .day-panel-title .soft {
+    font-weight: 500; opacity: 0.75; font-size: 0.82rem;
+  }
+
+  /* Interview-card spirit: stacked subcards */
+  .subcard {
+    border-radius: 18px; margin-bottom: 12px; overflow: hidden;
+    background: linear-gradient(180deg, #ffffff 0%, #fffafc 100%);
     box-shadow: var(--card-glow);
     border: 1px solid #fbcfe8;
   }
-  section.block > h2 {
-    margin: 0; padding: 14px 16px 10px;
-    font-size: 1.05rem; font-weight: 700; color: #be185d;
-    background: linear-gradient(90deg, #fce7f3, #fff1f5 60%, #ffffff);
-    border-bottom: 1px solid #fbcfe8;
-    text-shadow: 0 0 12px rgba(244,114,182,0.35);
+  .subcard > h2 {
+    margin: 0; padding: 12px 14px 8px;
+    font-size: 0.98rem; font-weight: 700; color: #9d174d;
+    background: linear-gradient(90deg, #fdf2f8, #fff7fa 60%, #ffffff);
+    border-bottom: 1px solid #fce7f3;
     display: flex; align-items: center; gap: 8px;
   }
-  section.block > h2 .emoji { filter: drop-shadow(0 0 6px rgba(244,114,182,.5)); }
-  section.block > .sub {
-    margin: 0; padding: 6px 16px 0; font-size: 0.8rem; color: #9d174d; opacity: 0.85;
+  .subcard > h2 .emoji { filter: drop-shadow(0 0 4px rgba(244,114,182,.3)); }
+  .subcard > .sub {
+    margin: 0; padding: 6px 14px 0; font-size: 0.78rem; color: #9d174d; opacity: 0.8;
   }
-  .day-card {
-    border-top: 1px solid #fce7f3; padding: 12px 14px 14px;
+  .subcard .body {
+    padding: 8px 12px 12px;
   }
-  .day-card:nth-child(odd) { background: rgba(255, 241, 245, 0.55); }
-  .day-card:nth-child(even) { background: rgba(255,255,255,0.7); }
-  .day-card h3 {
-    margin: 0 0 8px; font-size: 0.95rem; color: #db2777;
-    display: flex; justify-content: space-between; gap: 8px; align-items: baseline;
-  }
-  .day-card h3 span.tag {
-    font-size: 0.7rem; font-weight: 700; color: #be185d;
-    background: #fce7f3; border: 1px solid #f9a8d4; border-radius: 999px;
-    padding: 2px 9px;
-    box-shadow: 0 0 10px rgba(244,114,182,0.25);
-  }
+
   ul.items { list-style: none; margin: 0; padding: 0; }
   li.row {
     display: grid; grid-template-columns: 28px 1fr 32px; gap: 8px;
-    align-items: start; padding: 6px 0; border-bottom: 1px dashed #fbcfe8;
+    align-items: start; padding: 6px 0; border-bottom: 1px dashed #fce7f3;
   }
   li.row:last-child { border-bottom: none; }
   li.row input[type=checkbox] {
@@ -312,7 +276,7 @@
   .add-row {
     margin-top: 8px; width: 100%;
     border: 1px dashed #f9a8d4 !important;
-    background: #fff1f5 !important; color: #be185d !important;
+    background: #fff7fa !important; color: #9d174d !important;
     box-shadow: none !important;
   }
   footer {
@@ -320,31 +284,29 @@
   }
   footer .heart {
     font-family: "Great Vibes", cursive; font-size: 1.4rem; color: #f472b6;
-    text-shadow: 0 0 12px rgba(244,114,182,0.6);
+    text-shadow: 0 0 8px rgba(244,114,182,0.35);
   }
   footer .hist-note {
     margin-top: 8px; font-size: 0.75rem; max-width: 28rem; margin-left: auto; margin-right: auto;
     opacity: 0.95;
   }
 
-  /* Toast */
   #toast {
     position: fixed; left: 50%; bottom: max(24px, env(safe-area-inset-bottom));
     transform: translateX(-50%) translateY(120%);
     z-index: 100; pointer-events: none;
-    background: linear-gradient(135deg, #f472b6, #db2777);
+    background: linear-gradient(135deg, #f9a8d4, #db2777);
     color: #fff; font-weight: 700; font-size: 0.9rem;
     padding: 12px 18px; border-radius: 999px;
-    box-shadow: 0 8px 28px rgba(190, 24, 93, 0.45);
+    box-shadow: 0 8px 24px rgba(190, 24, 93, 0.32);
     transition: transform 0.28s ease, opacity 0.2s ease;
     max-width: calc(100% - 32px); text-align: center;
-    opacity: 0; visibility: hidden; /* hide empty pink pill when not toasting */
+    opacity: 0; visibility: hidden;
   }
   #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; visibility: visible; }
 
-  /* Phone-first (iPhone Pro Max logical width 430; pad up to ~480) */
   @media (max-width: 480px) {
-    .deco { width: 48px; height: 48px; opacity: 0.35; }
+    .deco { width: 48px; height: 48px; opacity: 0.28; }
     .deco.f1 { top: 8px; left: 4px; width: 44px; height: 44px; }
     .deco.f2 { top: 12px; right: 4px; width: 40px; height: 40px; }
     .deco.f3, .deco.f4 { display: none; }
@@ -353,17 +315,17 @@
       padding: max(12px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
     }
     .hero {
-      padding: 18px 14px 14px;
+      padding: 16px 14px 12px;
       border-radius: 20px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
-    .hero::before, .hero::after { width: 72px; height: 72px; opacity: 0.22; }
-    .hero .script { font-size: clamp(2rem, 9vw, 2.6rem); }
-    .hero h1 { font-size: 1rem; }
-    .hero p { font-size: 0.86rem; margin-top: 8px; }
-    .pill { font-size: 0.7rem; padding: 4px 10px; }
-    .hero .glow-quote { font-size: clamp(1.15rem, 5.5vw, 1.45rem); }
-    .hero .glow-quote-wrap { margin-top: 10px; padding-top: 8px; }
+    .hero::before, .hero::after { width: 72px; height: 72px; opacity: 0.16; }
+    .hero .script { font-size: clamp(1.9rem, 8.5vw, 2.5rem); }
+    .hero h1 { font-size: 0.98rem; }
+    .hero p { font-size: 0.84rem; margin-top: 8px; }
+    .pill { font-size: 0.68rem; padding: 4px 10px; }
+    .hero .glow-quote { font-size: clamp(1.1rem, 5.2vw, 1.4rem); }
+    .hero .glow-quote-wrap { margin-top: 8px; padding-top: 8px; }
     .his { padding: 10px 12px; font-size: 0.82rem; margin: 10px 0 12px; }
     .toolbar { gap: 8px; margin-bottom: 12px; }
     button {
@@ -374,9 +336,13 @@
     }
     .week-meta { gap: 8px; margin-bottom: 12px; }
     input.meta { min-height: 44px; padding: 12px; font-size: 16px; }
-    section.block { border-radius: 18px; margin-bottom: 12px; }
-    section.block > h2 { padding: 12px 14px 8px; font-size: 1rem; }
-    .day-card { padding: 10px 12px 12px; }
+    .day-tab {
+      min-width: 36px; padding: 11px 4px; font-size: 0.74rem;
+      min-height: 44px;
+    }
+    .day-tab.sparkle-tab { min-width: 48px; font-size: 0.68rem; }
+    .subcard { border-radius: 16px; margin-bottom: 10px; }
+    .subcard > h2 { padding: 11px 12px 7px; font-size: 0.95rem; }
     li.row {
       grid-template-columns: 44px 1fr 44px;
       gap: 4px;
@@ -397,53 +363,41 @@
       min-height: 44px; padding: 10px 10px; font-size: 16px;
     }
     .add-row { min-height: 44px; }
-    .gate-card { padding: 22px 16px 20px; border-radius: 22px; }
-    .gate-card .script { font-size: 2.1rem; }
   }
   @media (max-width: 430px) {
-    .deco.f1, .deco.f2 { opacity: 0.28; width: 36px; height: 36px; }
+    .deco.f1, .deco.f2 { opacity: 0.22; width: 36px; height: 36px; }
     .hero { padding: 14px 12px 12px; border-radius: 16px; }
     .hero::before { top: -28px; left: -18px; }
     .hero::after { bottom: -32px; right: -16px; }
+    .day-tabs { gap: 4px; }
+    .day-tab { min-width: 34px; padding: 10px 2px; font-size: 0.7rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero .script, .hero h1, .hero .glow-quote, .gate-card .script { animation: none; background-position: 40% 50%; }
+    .hero .script, .hero .glow-quote { animation: none; background-position: 40% 50%; }
     #toast { transition: none; }
   }
 
   @media print {
     body { background: #fff; }
-    .deco, .toolbar, .remove, .add-row, .his, .week-bar, #gate, #toast, #btnLock { display: none !important; }
-    .hero, section.block {
+    .deco, .toolbar, .remove, .add-row, .his, .week-bar, .day-tabs, #toast { display: none !important; }
+    .hero, .subcard {
       box-shadow: none !important;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
-    section.block { break-inside: avoid; }
+    .subcard { break-inside: avoid; }
     input.meta, textarea.item-text { border: none; background: transparent; box-shadow: none; padding-left: 0; }
-    body.locked .page { display: block !important; }
+    /* Print shows all days stacked */
+    .print-all { display: block !important; }
   }
 </style>
 </head>
-<body class="locked">
+<body>
   <div class="deco f1" aria-hidden="true"></div>
   <div class="deco f2" aria-hidden="true"></div>
   <div class="deco f3" aria-hidden="true"></div>
   <div class="deco f4" aria-hidden="true"></div>
-
-  <div id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
-    <div class="gate-card">
-      <p class="script">For Erica</p>
-      <h2 id="gateTitle">Weekly Glow List</h2>
-      <p class="hint">Enter the glow password to open her list.</p>
-      <form id="gateForm" autocomplete="off">
-        <input type="password" id="gatePass" name="pass" placeholder="Password" enterkeyhint="go" autocapitalize="off" autocorrect="off" spellcheck="false" />
-        <p class="gate-err" id="gateErr" aria-live="polite"></p>
-        <button type="submit" id="btnUnlock">Unlock ✨</button>
-      </form>
-    </div>
-  </div>
 
   <div class="page">
     <header class="hero">
@@ -451,8 +405,8 @@
       <h1>Weekly Glow List</h1>
       <p>Pretty checkmarks for workouts + house sparkle days. Save each week — look back anytime.</p>
       <div class="pill-row">
-        <span class="pill">Mon–Fri workouts</span>
-        <span class="pill">Deep-clean rhythm</span>
+        <span class="pill">Day-by-day</span>
+        <span class="pill">Mon–Sun</span>
         <span class="pill">Week-by-week log</span>
       </div>
       <div class="glow-quote-wrap">
@@ -482,7 +436,6 @@
       <button type="button" id="btnPrint">Print / Save pretty PDF</button>
       <button type="button" class="secondary" id="btnClearChecks">Clear checkmarks</button>
       <button type="button" class="secondary" id="btnReset">Reset to draft</button>
-      <button type="button" class="secondary" id="btnLock">Lock</button>
     </div>
 
     <div class="week-meta">
@@ -496,23 +449,34 @@
       </div>
     </div>
 
+    <nav class="day-tabs" id="dayTabs" role="tablist" aria-label="Days of the week"></nav>
     <div id="root"></div>
+
     <footer>
       <div class="heart">with love</div>
-      Saves in this browser · Friday clean + workouts left open for her words
+      Saves in this browser · weekends open if she wants them · workouts left for her words
       <div class="hist-note">Week history stays on this phone/browser (localStorage). Not cloud-synced unless Mike asks later.</div>
     </footer>
   </div>
   <div id="toast" role="status" aria-live="polite"></div>
 <script>
 (function () {
+  /* Same keys as before — existing saves migrate without wipe */
   var KEY = "erica_weekly_glow_v3";
   var ARCHIVE_KEY = "erica_weekly_glow_archive_v1";
-  var UNLOCK_KEY = "erica_weekly_glow_unlocked_v1";
-  /* SHA-256 of unlock secret — plaintext is never stored in this file */
-  var PASS_HASH = "ee7be071a5d1372acd30f4b4ce532c42a219b9d321fa27759932e7e698c9bc10";
-  var WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  var TAB_KEY = "erica_weekly_glow_tab_v1";
+  var WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  var DAY_SHORT = ["M", "T", "W", "T", "F", "S", "S"];
   var MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  var CLEAN_LABELS = {
+    Monday: "Bathroom",
+    Tuesday: "Baseboards",
+    Wednesday: "Mop + vacuum",
+    Thursday: "Dust",
+    Friday: "Friday deep-clean",
+    Saturday: "Weekend sparkle",
+    Sunday: "Weekend sparkle"
+  };
 
   function defaultState() {
     return {
@@ -523,14 +487,18 @@
         Tuesday:   [{ text: "Workout (fill in)", done: false }],
         Wednesday: [{ text: "Workout (fill in)", done: false }],
         Thursday:  [{ text: "Workout (fill in)", done: false }],
-        Friday:    [{ text: "Workout (fill in)", done: false }]
+        Friday:    [{ text: "Workout (fill in)", done: false }],
+        Saturday:  [{ text: "", done: false }],
+        Sunday:    [{ text: "", done: false }]
       },
       cleaning: {
         Monday:    [{ text: "Bathroom glow-up", done: false }],
         Tuesday:   [{ text: "Baseboards / floorboards", done: false }],
         Wednesday: [{ text: "Mop + vacuum", done: false }],
         Thursday:  [{ text: "Dust the house", done: false }],
-        Friday:    [{ text: "Friday deep-clean (she picks)", done: false }]
+        Friday:    [{ text: "Friday deep-clean (she picks)", done: false }],
+        Saturday:  [{ text: "", done: false }],
+        Sunday:    [{ text: "", done: false }]
       },
       monthly: [
         { text: "Declutter a zone (closet / pantry / shelf…)", done: false },
@@ -549,13 +517,12 @@
 
   function mondayKey(d) {
     var x = new Date(d.getFullYear(), d.getMonth(), d.getDate());
-    var day = x.getDay(); /* 0 Sun */
+    var day = x.getDay();
     var diff = day === 0 ? -6 : 1 - day;
     x.setDate(x.getDate() + diff);
     return x.getFullYear() + "-" + pad2(x.getMonth() + 1) + "-" + pad2(x.getDate());
   }
 
-  /* Original Logbook-spirit lines — soft, warm, hers. Rotate by Monday week key. */
   var GLOW_QUOTES = [
     "Showing up for herself is already a kind of glow.",
     "Quiet checkmarks. Soft resolve. Real becoming.",
@@ -578,8 +545,7 @@
   }
 
   function quoteForWeekKey(key) {
-    var idx = hashWeekKey(key) % GLOW_QUOTES.length;
-    return GLOW_QUOTES[idx];
+    return GLOW_QUOTES[hashWeekKey(key) % GLOW_QUOTES.length];
   }
 
   function activeWeekKeyForQuote() {
@@ -612,14 +578,29 @@
     var label = formatShort(mon) + " – " + formatShort(sun);
     if (mon.getFullYear() !== sun.getFullYear()) {
       label = formatShort(mon) + ", " + mon.getFullYear() + " – " + formatShort(sun) + ", " + sun.getFullYear();
-    } else if (mon.getMonth() !== sun.getMonth()) {
-      /* already different months via formatShort */
     }
     return label;
   }
 
   function defaultWeekOfForToday() {
     return weekOfLabelFromKey(mondayKey(new Date()));
+  }
+
+  /* Ensure Sat/Sun keys exist on older saves without wiping Mon–Fri data */
+  function migrateState(o) {
+    if (!o || typeof o !== "object") return defaultState();
+    var base = defaultState();
+    if (!o.workouts || typeof o.workouts !== "object") o.workouts = base.workouts;
+    if (!o.cleaning || typeof o.cleaning !== "object") o.cleaning = base.cleaning;
+    WEEKDAYS.forEach(function (d) {
+      if (!Array.isArray(o.workouts[d])) o.workouts[d] = clone(base.workouts[d]);
+      if (!Array.isArray(o.cleaning[d])) o.cleaning[d] = clone(base.cleaning[d]);
+    });
+    if (!Array.isArray(o.monthly)) o.monthly = clone(base.monthly);
+    if (!Array.isArray(o.extras)) o.extras = clone(base.extras);
+    if (!o.weekOf) o.weekOf = defaultWeekOfForToday();
+    if (o.notes == null) o.notes = "";
+    return o;
   }
 
   function loadWorking() {
@@ -631,13 +612,7 @@
         return s;
       }
       var o = JSON.parse(raw);
-      if (!o || !o.workouts || !o.cleaning) {
-        var s2 = defaultState();
-        s2.weekOf = defaultWeekOfForToday();
-        return s2;
-      }
-      if (!o.weekOf) o.weekOf = defaultWeekOfForToday();
-      return o;
+      return migrateState(o);
     } catch (e) {
       var s3 = defaultState();
       s3.weekOf = defaultWeekOfForToday();
@@ -656,6 +631,10 @@
       var o = JSON.parse(raw);
       if (!o || typeof o !== "object") return { weeks: {}, currentKey: null };
       if (!o.weeks || typeof o.weeks !== "object") o.weeks = {};
+      /* Soft-migrate archived weeks so Sat/Sun exist when loaded */
+      Object.keys(o.weeks).forEach(function (k) {
+        if (o.weeks[k]) o.weeks[k] = migrateState(o.weeks[k]);
+      });
       return o;
     } catch (e) { return { weeks: {}, currentKey: null }; }
   }
@@ -678,15 +657,7 @@
   }
 
   function applySnapshot(snap) {
-    var s = defaultState();
-    if (!snap) return s;
-    s.weekOf = snap.weekOf || "";
-    s.notes = snap.notes || "";
-    if (snap.workouts) s.workouts = clone(snap.workouts);
-    if (snap.cleaning) s.cleaning = clone(snap.cleaning);
-    if (snap.monthly) s.monthly = clone(snap.monthly);
-    if (snap.extras) s.extras = clone(snap.extras);
-    return s;
+    return migrateState(snap || defaultState());
   }
 
   function resolveSaveKey(st, arch) {
@@ -694,8 +665,28 @@
     return mondayKey(new Date());
   }
 
+  function todayDayName() {
+    var names = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    return names[new Date().getDay()];
+  }
+
+  function loadActiveTab() {
+    try {
+      var t = localStorage.getItem(TAB_KEY);
+      if (t === "sparkle") return "sparkle";
+      if (WEEKDAYS.indexOf(t) >= 0) return t;
+    } catch (e) {}
+    var today = todayDayName();
+    return WEEKDAYS.indexOf(today) >= 0 ? today : "Monday";
+  }
+
+  function saveActiveTab(t) {
+    try { localStorage.setItem(TAB_KEY, t); } catch (e) {}
+  }
+
   var state = loadWorking();
   var archive = loadArchive();
+  var activeTab = loadActiveTab();
   var root = document.getElementById("root");
   var toastTimer = null;
 
@@ -715,9 +706,8 @@
     keys.forEach(function (k) {
       var w = archive.weeks[k];
       var label = (w && w.weekOf) ? w.weekOf : weekOfLabelFromKey(k);
-      var mark = (k === cur) ? " ★" : "";
       html += '<option value="' + k + '"' + (k === cur ? " selected" : "") + ">" +
-        "Week of " + label + mark + "</option>";
+        "Week of " + label + (k === cur ? " ★" : "") + "</option>";
     });
     sel.innerHTML = html;
     if (cur && archive.weeks[cur]) sel.value = cur;
@@ -757,43 +747,61 @@
     });
   }
 
-  function renderDayBlock(title, emoji, sectionKey, tag) {
-    var html = '<section class="block"><h2><span class="emoji">' + emoji + '</span> ' + title + '</h2>';
-    if (tag) html += '<p class="sub">' + tag + '</p>';
-    html += '<div class="day-grid">';
-    WEEKDAYS.forEach(function (day) {
-      html += '<div class="day-card"><h3>' + day + ' <span class="tag">weekday</span></h3><ul class="items">';
-      (state[sectionKey][day] || []).forEach(function (item, idx) {
-        html += rowHtml(sectionKey, day, idx, item);
-      });
-      html += '</ul><button type="button" class="add-row" data-add-sec="' + sectionKey +
-        '" data-add-day="' + day + '">+ Add line</button></div>';
+  function renderSubcard(title, emoji, sectionKey, dayOrNull, sub) {
+    var html = '<section class="subcard"><h2><span class="emoji">' + emoji + '</span> ' + title + '</h2>';
+    if (sub) html += '<p class="sub">' + sub + '</p>';
+    html += '<div class="body"><ul class="items">';
+    var list = dayOrNull != null ? (state[sectionKey][dayOrNull] || []) : (state[sectionKey] || []);
+    list.forEach(function (item, idx) {
+      html += rowHtml(sectionKey, dayOrNull, idx, item);
     });
-    html += '</div></section>';
+    html += '</ul><button type="button" class="add-row" data-add-sec="' + sectionKey + '"';
+    if (dayOrNull != null) html += ' data-add-day="' + dayOrNull + '"';
+    html += '>+ Add line</button></div></section>';
     return html;
   }
 
-  function renderListBlock(title, emoji, sectionKey, sub) {
-    var html = '<section class="block"><h2><span class="emoji">' + emoji + '</span> ' + title + '</h2>';
-    if (sub) html += '<p class="sub">' + sub + '</p>';
-    html += '<div class="day-card" style="border-top:none"><ul class="items">';
-    (state[sectionKey] || []).forEach(function (item, idx) {
-      html += rowHtml(sectionKey, null, idx, item);
+  function renderDayTabs() {
+    var nav = document.getElementById("dayTabs");
+    var html = "";
+    WEEKDAYS.forEach(function (day, i) {
+      var active = activeTab === day ? " active" : "";
+      html += '<button type="button" class="day-tab' + active + '" role="tab" aria-selected="' +
+        (activeTab === day ? "true" : "false") + '" data-tab="' + day + '" title="' + day + '">' +
+        DAY_SHORT[i] + '</button>';
     });
-    html += '</ul><button type="button" class="add-row" data-add-sec="' + sectionKey +
-      '">+ Add line</button></div></section>';
-    return html;
+    var sparkActive = activeTab === "sparkle" ? " active" : "";
+    html += '<button type="button" class="day-tab sparkle-tab' + sparkActive +
+      '" role="tab" aria-selected="' + (activeTab === "sparkle" ? "true" : "false") +
+      '" data-tab="sparkle" title="Monthly & extras">✨</button>';
+    nav.innerHTML = html;
   }
 
   function render() {
     document.getElementById("weekOf").value = state.weekOf || "";
     document.getElementById("notes").value = state.notes || "";
-    root.innerHTML =
-      renderDayBlock("Workouts", "💪", "workouts", "Weekdays only — weekends off unless she adds something.") +
-      renderDayBlock("House sparkle rhythm", "✨", "cleaning", "Her preferred weekday split — rewrite any day.") +
-      renderListBlock("Monthly / quarterly sparkle", "🌸", "monthly",
-        "Not every week — when she’s in the mode: declutter, paint, bigger resets.") +
-      renderListBlock("Extra this week", "💕", "extras", "Anything else she wants on the list.");
+    renderDayTabs();
+
+    var html = "";
+    if (activeTab === "sparkle") {
+      html += '<p class="day-panel-title">Sparkle extras <span class="soft">· monthly & this week</span></p>';
+      html += renderSubcard("Monthly / quarterly sparkle", "🌸", "monthly", null,
+        "Not every week — when she’s in the mode: declutter, paint, bigger resets.");
+      html += renderSubcard("Extra this week", "💕", "extras", null,
+        "Anything else she wants on the list.");
+    } else {
+      var day = activeTab;
+      var cleanName = CLEAN_LABELS[day] || "Daily task";
+      var isWeekend = day === "Saturday" || day === "Sunday";
+      html += '<p class="day-panel-title">' + day +
+        (isWeekend ? ' <span class="soft">· optional / open</span>' : '') + '</p>';
+      html += renderSubcard("Workout", "💪", "workouts", day,
+        isWeekend ? "Weekends usually off — add something if she wants." : "Fill in her plan for today.");
+      html += renderSubcard(cleanName, "✨", "cleaning", day,
+        isWeekend ? "Open task — house sparkle if she’s in the mood." : "Today’s house sparkle.");
+    }
+
+    root.innerHTML = html;
     fillTextareas(root);
     updatePastSelect();
     updateStatus();
@@ -802,7 +810,6 @@
 
   function persist() {
     saveWorking(state);
-    /* If editing a saved week, keep archive entry in sync on edits too */
     if (archive.currentKey && archive.weeks[archive.currentKey]) {
       var key = archive.currentKey;
       archive.weeks[key] = snapshotFromState(state, key);
@@ -833,8 +840,6 @@
 
   function loadPastWeek(key) {
     if (!key || !archive.weeks[key]) return;
-    /* Autosave current working into archive under its key if it was a saved week;
-       if working-only, still leave working KEY as-is until they Save */
     if (archive.currentKey && archive.weeks[archive.currentKey]) {
       archive.weeks[archive.currentKey] = snapshotFromState(state, archive.currentKey);
     }
@@ -847,14 +852,12 @@
   }
 
   function startNewWeek() {
-    /* Auto-save current into archive first */
     var key = resolveSaveKey(state, archive);
     if (!state.weekOf || !String(state.weekOf).trim()) {
       state.weekOf = weekOfLabelFromKey(key);
     }
     archive.weeks[key] = snapshotFromState(state, key);
     var nextKey = mondayKey(new Date());
-    /* If nextKey already equals key (same calendar week), advance to next Monday */
     if (nextKey === key) {
       var mon = parseKey(key);
       mon.setDate(mon.getDate() + 7);
@@ -865,9 +868,19 @@
     state = defaultState();
     state.weekOf = weekOfLabelFromKey(nextKey);
     saveWorking(state);
+    activeTab = "Monday";
+    saveActiveTab(activeTab);
     render();
     showToast("New week · previous saved");
   }
+
+  document.getElementById("dayTabs").addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-tab]");
+    if (!btn) return;
+    activeTab = btn.getAttribute("data-tab");
+    saveActiveTab(activeTab);
+    render();
+  });
 
   root.addEventListener("change", function (e) {
     var t = e.target;
@@ -941,74 +954,8 @@
     loadPastWeek(key);
   });
 
-  /* —— Unlock / lock —— */
-  function hexFromBuffer(buf) {
-    var bytes = new Uint8Array(buf);
-    var s = "";
-    for (var i = 0; i < bytes.length; i++) {
-      var h = bytes[i].toString(16);
-      s += (h.length === 1 ? "0" : "") + h;
-    }
-    return s;
-  }
-
-  async function sha256Hex(text) {
-    var enc = new TextEncoder().encode(text);
-    var dig = await crypto.subtle.digest("SHA-256", enc);
-    return hexFromBuffer(dig);
-  }
-
-  function isUnlocked() {
-    try { return sessionStorage.getItem(UNLOCK_KEY) === "1"; } catch (e) { return false; }
-  }
-  function setUnlocked(v) {
-    try {
-      if (v) sessionStorage.setItem(UNLOCK_KEY, "1");
-      else sessionStorage.removeItem(UNLOCK_KEY);
-    } catch (e) {}
-  }
-  function showApp() {
-    document.body.classList.remove("locked");
-  }
-  function showGate() {
-    document.body.classList.add("locked");
-    var err = document.getElementById("gateErr");
-    err.textContent = "";
-    var inp = document.getElementById("gatePass");
-    inp.value = "";
-    setTimeout(function () { inp.focus(); }, 50);
-  }
-
-  document.getElementById("btnLock").addEventListener("click", function () {
-    setUnlocked(false);
-    showGate();
-  });
-
-  document.getElementById("gateForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
-    var inp = document.getElementById("gatePass");
-    var err = document.getElementById("gateErr");
-    var btn = document.getElementById("btnUnlock");
-    err.textContent = "";
-    btn.disabled = true;
-    try {
-      var h = await sha256Hex(inp.value);
-      if (h === PASS_HASH) {
-        setUnlocked(true);
-        inp.value = "";
-        showApp();
-      } else {
-        err.textContent = "Hmm, that didn’t sparkle. Try again.";
-        inp.select();
-      }
-    } catch (ex) {
-      err.textContent = "Couldn’t unlock on this browser.";
-    }
-    btn.disabled = false;
-  });
-
-  if (isUnlocked()) showApp();
-  else showGate();
+  /* Clear any leftover unlock session flag from the old password gate */
+  try { sessionStorage.removeItem("erica_weekly_glow_unlocked_v1"); } catch (e) {}
 
   render();
 })();
