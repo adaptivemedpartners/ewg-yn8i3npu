@@ -228,6 +228,11 @@
     flex: 1.15 1 0; min-width: 52px;
     font-size: 0.72rem;
   }
+  .day-tab.ethan-tab {
+    flex: 1.35 1 0; min-width: 56px;
+    font-size: 0.72rem;
+    letter-spacing: 0.01em;
+  }
   .day-panel-title {
     text-align: center;
     font-size: 0.95rem; font-weight: 700; color: #9d174d;
@@ -252,6 +257,7 @@
     display: flex; align-items: center; gap: 8px;
   }
   .subcard > h2 .emoji { filter: drop-shadow(0 0 4px rgba(244,114,182,.3)); }
+  .subcard > h2 .soft { font-weight: 500; opacity: 0.7; font-size: 0.78rem; }
   .subcard > .sub {
     margin: 0; padding: 6px 14px 0; font-size: 0.78rem; color: #9d174d; opacity: 0.8;
   }
@@ -278,6 +284,53 @@
     border: 1px dashed #f9a8d4 !important;
     background: #fff7fa !important; color: #9d174d !important;
     box-shadow: none !important;
+  }
+
+  /* Ethan hub — same blush family, slightly mint-tinted cards */
+  .ethan-note {
+    margin: 0; padding: 6px 14px 0; font-size: 0.78rem; color: #9d174d; opacity: 0.86;
+    line-height: 1.4;
+  }
+  .ethan-actions {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    padding: 10px 12px 4px;
+  }
+  .ethan-actions .hub-btn,
+  .ethan-actions .hub-link {
+    min-height: 40px;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 700;
+    font-family: inherit;
+    background: #fff;
+    color: #9d174d;
+    border: 1px solid #f9a8d4;
+    box-shadow: 0 0 8px rgba(251, 207, 232, 0.45);
+  }
+  .ethan-fields { padding: 4px 12px 12px; }
+  .ethan-fields .field { margin-top: 10px; }
+  .ethan-fields .field:first-child { margin-top: 4px; }
+  .ghost {
+    margin: 6px 0 8px;
+    padding: 10px 12px;
+    border: 1px dashed #f9a8d4;
+    border-radius: 12px;
+    background: rgba(255, 247, 250, 0.7);
+    color: #9d174d;
+    font-size: 0.78rem;
+    opacity: 0.78;
+    line-height: 1.4;
+  }
+  .hub-hint {
+    font-size: 0.74rem;
+    color: #9d174d;
+    opacity: 0.78;
+    margin: 4px 0 0;
   }
   footer {
     text-align: center; margin-top: 20px; font-size: 0.8rem; color: #9d174d; opacity: 0.8;
@@ -341,6 +394,11 @@
       min-height: 44px;
     }
     .day-tab.sparkle-tab { min-width: 48px; font-size: 0.68rem; }
+    .day-tab.ethan-tab { min-width: 52px; font-size: 0.7rem; }
+    .ethan-actions { padding: 10px 12px 2px; }
+    .ethan-actions .hub-btn,
+    .ethan-actions .hub-link { min-height: 44px; }
+    .ethan-fields { padding: 2px 12px 12px; }
     .subcard { border-radius: 16px; margin-bottom: 10px; }
     .subcard > h2 { padding: 11px 12px 7px; font-size: 0.95rem; }
     li.row {
@@ -369,8 +427,9 @@
     .hero { padding: 14px 12px 12px; border-radius: 16px; }
     .hero::before { top: -28px; left: -18px; }
     .hero::after { bottom: -32px; right: -16px; }
-    .day-tabs { gap: 4px; }
-    .day-tab { min-width: 34px; padding: 10px 2px; font-size: 0.7rem; }
+    .day-tabs { gap: 4px; flex-wrap: wrap; justify-content: center; }
+    .day-tab { min-width: 34px; padding: 10px 2px; font-size: 0.7rem; flex: 0 1 auto; }
+    .day-tab.sparkle-tab, .day-tab.ethan-tab { min-width: 50px; padding: 10px 8px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -380,7 +439,7 @@
 
   @media print {
     body { background: #fff; }
-    .deco, .toolbar, .remove, .add-row, .his, .week-bar, .day-tabs, #toast { display: none !important; }
+    .deco, .toolbar, .remove, .add-row, .his, .week-bar, .day-tabs, #toast, .ethan-actions { display: none !important; }
     .hero, .subcard {
       box-shadow: none !important;
       -webkit-print-color-adjust: exact;
@@ -449,7 +508,7 @@
       </div>
     </div>
 
-    <nav class="day-tabs" id="dayTabs" role="tablist" aria-label="Days of the week"></nav>
+    <nav class="day-tabs" id="dayTabs" role="tablist" aria-label="Days, Sparkle, and Ethan"></nav>
     <div id="root"></div>
 
     <footer>
@@ -465,6 +524,7 @@
   var KEY = "erica_weekly_glow_v3";
   var ARCHIVE_KEY = "erica_weekly_glow_archive_v1";
   var TAB_KEY = "erica_weekly_glow_tab_v1";
+  var ETHAN_KEY = "ethan_hub_v1";
   var WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
   var DAY_SHORT = ["M", "T", "W", "T", "F", "S", "S"];
   var MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -670,10 +730,49 @@
     return names[new Date().getDay()];
   }
 
+  function defaultEthan() {
+    return {
+      nextFootball: "",
+      nextSoccer: "",
+      notes: "",
+      calendarStatus: "",
+      footballUpcoming: [{ text: "", done: false }],
+      soccerUpcoming: [{ text: "", done: false }]
+    };
+  }
+
+  function migrateEthan(o) {
+    var base = defaultEthan();
+    if (!o || typeof o !== "object") return base;
+    if (typeof o.nextFootball !== "string") o.nextFootball = base.nextFootball;
+    if (typeof o.nextSoccer !== "string") o.nextSoccer = base.nextSoccer;
+    if (typeof o.notes !== "string") o.notes = base.notes;
+    if (typeof o.calendarStatus !== "string") o.calendarStatus = base.calendarStatus;
+    if (!Array.isArray(o.footballUpcoming)) o.footballUpcoming = clone(base.footballUpcoming);
+    if (!Array.isArray(o.soccerUpcoming)) o.soccerUpcoming = clone(base.soccerUpcoming);
+    if (!o.footballUpcoming.length) o.footballUpcoming.push({ text: "", done: false });
+    if (!o.soccerUpcoming.length) o.soccerUpcoming.push({ text: "", done: false });
+    return o;
+  }
+
+  function loadEthan() {
+    try {
+      var raw = localStorage.getItem(ETHAN_KEY);
+      if (!raw) return defaultEthan();
+      return migrateEthan(JSON.parse(raw));
+    } catch (e) {
+      return defaultEthan();
+    }
+  }
+
+  function saveEthan() {
+    try { localStorage.setItem(ETHAN_KEY, JSON.stringify(ethan)); } catch (e) {}
+  }
+
   function loadActiveTab() {
     try {
       var t = localStorage.getItem(TAB_KEY);
-      if (t === "sparkle") return "sparkle";
+      if (t === "sparkle" || t === "ethan") return t;
       if (WEEKDAYS.indexOf(t) >= 0) return t;
     } catch (e) {}
     var today = todayDayName();
@@ -686,6 +785,7 @@
 
   var state = loadWorking();
   var archive = loadArchive();
+  var ethan = loadEthan();
   var activeTab = loadActiveTab();
   var root = document.getElementById("root");
   var toastTimer = null;
@@ -736,7 +836,7 @@
   }
 
   function fillTextareas(scope) {
-    scope.querySelectorAll("textarea.item-text").forEach(function (ta) {
+    scope.querySelectorAll("textarea.item-text[data-sec]").forEach(function (ta) {
       var sec = ta.getAttribute("data-sec");
       var day = ta.getAttribute("data-day");
       var idx = +ta.getAttribute("data-idx");
@@ -745,6 +845,22 @@
       ta.style.height = "auto";
       ta.style.height = Math.min(120, ta.scrollHeight) + "px";
     });
+  }
+
+  function fillEthanFields() {
+    var nf = document.getElementById("ethanNextFootball");
+    var ns = document.getElementById("ethanNextSoccer");
+    var cal = document.getElementById("ethanCalStatus");
+    var notes = document.getElementById("ethanNotes");
+    if (nf) nf.value = ethan.nextFootball || "";
+    if (ns) ns.value = ethan.nextSoccer || "";
+    if (cal) cal.value = ethan.calendarStatus || "";
+    if (notes) {
+      notes.value = ethan.notes || "";
+      notes.style.height = "auto";
+      notes.style.height = Math.min(160, Math.max(72, notes.scrollHeight)) + "px";
+    }
+    fillEthanTextareas(root);
   }
 
   function renderSubcard(title, emoji, sectionKey, dayOrNull, sub) {
@@ -774,7 +890,108 @@
     html += '<button type="button" class="day-tab sparkle-tab' + sparkActive +
       '" role="tab" aria-selected="' + (activeTab === "sparkle" ? "true" : "false") +
       '" data-tab="sparkle" title="Monthly & extras">✨</button>';
+    var ethanActive = activeTab === "ethan" ? " active" : "";
+    html += '<button type="button" class="day-tab ethan-tab' + ethanActive +
+      '" role="tab" aria-selected="' + (activeTab === "ethan" ? "true" : "false") +
+      '" data-tab="ethan" title="Ethan — football & soccer">Ethan</button>';
     nav.innerHTML = html;
+  }
+
+  function ethanRowHtml(listKey, idx, item) {
+    return '<li class="row">' +
+      '<input type="checkbox"' + (item.done ? " checked" : "") +
+        ' data-ethan-list="' + listKey + '" data-idx="' + idx + '" />' +
+      '<textarea class="item-text" rows="1" data-ethan-list="' + listKey +
+        '" data-idx="' + idx + '" placeholder="Add a game or practice…"></textarea>' +
+      '<button type="button" class="remove" title="Remove" data-ethan-list="' + listKey +
+        '" data-idx="' + idx + '">×</button>' +
+      '</li>';
+  }
+
+  function fillEthanTextareas(scope) {
+    scope.querySelectorAll("textarea.item-text[data-ethan-list]").forEach(function (ta) {
+      var listKey = ta.getAttribute("data-ethan-list");
+      var idx = +ta.getAttribute("data-idx");
+      var item = ethan[listKey] && ethan[listKey][idx];
+      ta.value = (item && item.text) || "";
+      ta.style.height = "auto";
+      ta.style.height = Math.min(120, ta.scrollHeight) + "px";
+    });
+  }
+
+  function listHasText(list) {
+    return (list || []).some(function (it) { return it && String(it.text || "").trim(); });
+  }
+
+  function renderEthanList(listKey) {
+    var html = '<ul class="items">';
+    (ethan[listKey] || []).forEach(function (item, idx) {
+      html += ethanRowHtml(listKey, idx, item);
+    });
+    html += '</ul><button type="button" class="add-row" data-ethan-add="' + listKey +
+      '">+ Add line</button>';
+    return html;
+  }
+
+  function renderEthanPanel() {
+    var footGhost = !listHasText(ethan.footballUpcoming);
+    var socGhost = !listHasText(ethan.soccerUpcoming);
+    var html = "";
+    html += '<p class="day-panel-title">Ethan <span class="soft">· football + soccer</span></p>';
+
+    html += '<section class="subcard">';
+    html += '<h2><span class="emoji">🏈</span> Football <span class="soft">· sportsYou</span></h2>';
+    html += '<p class="ethan-note">Upcoming games and practices live here. Coach updates the sportsYou message board — open the app for the latest (no public web schedule).</p>';
+    html += '<div class="ethan-actions">';
+    html += '<button type="button" class="secondary hub-btn" id="btnOpenSportsyou">Open sportsYou</button>';
+    html += '</div>';
+    html += '<div class="ethan-fields">';
+    html += '<label class="field" for="ethanNextFootball">Next football event</label>';
+    html += '<input class="meta" id="ethanNextFootball" type="text" placeholder="Day, time, place — when you know it" />';
+    if (footGhost) {
+      html += '<p class="ghost">No games or practices listed yet. Add one below when you know it.</p>';
+    }
+    html += '<label class="field">Upcoming games / practices</label>';
+    html += renderEthanList("footballUpcoming");
+    html += '</div></section>';
+
+    html += '<section class="subcard">';
+    html += '<h2><span class="emoji">⚽</span> Soccer <span class="soft">· TeamSnap</span></h2>';
+    html += '<p class="ethan-note">TeamSnap has <strong>Add to calendar</strong> on the team schedule. Subscribe there if you want games on your phone calendar.</p>';
+    html += '<div class="ethan-actions">';
+    html += '<a class="hub-link" href="https://www.teamsnap.com" target="_blank" rel="noopener noreferrer">Open TeamSnap</a>';
+    html += '</div>';
+    html += '<div class="ethan-fields">';
+    html += '<label class="field" for="ethanCalStatus">Calendar subscribe</label>';
+    html += '<input class="meta" id="ethanCalStatus" type="text" placeholder="Not connected yet — note when you subscribe" />';
+    html += '<p class="hub-hint">Not hooked up yet — jot a note here when you subscribe in TeamSnap.</p>';
+    html += '<label class="field" for="ethanNextSoccer">Next soccer event</label>';
+    html += '<input class="meta" id="ethanNextSoccer" type="text" placeholder="Day, time, place — when you know it" />';
+    if (socGhost) {
+      html += '<p class="ghost">No soccer games or practices listed yet. Add one below when you know it.</p>';
+    }
+    html += '<label class="field">Upcoming games / practices</label>';
+    html += renderEthanList("soccerUpcoming");
+    html += '</div></section>';
+
+    html += '<section class="subcard">';
+    html += '<h2><span class="emoji">💬</span> Soccer chat <span class="soft">· GroupMe</span></h2>';
+    html += '<p class="ethan-note">Last-minute changes, weather, and “are we still on?” — not a schedule. Check here before you leave.</p>';
+    html += '<div class="ethan-actions">';
+    html += '<a class="hub-link" href="https://web.groupme.com" target="_blank" rel="noopener noreferrer">Open GroupMe</a>';
+    html += '</div>';
+    html += '</section>';
+
+    html += '<section class="subcard">';
+    html += '<h2><span class="emoji">📝</span> Notes for Mike + Erica</h2>';
+    html += '<p class="ethan-note">Anything to remember — rides, snacks, jersey, field notes. Stays on this phone.</p>';
+    html += '<div class="ethan-fields">';
+    html += '<label class="field" for="ethanNotes">Shared notes</label>';
+    html += '<textarea class="item-text" id="ethanNotes" rows="3" placeholder="Type a note…"></textarea>';
+    html += '<p class="hub-hint">Saved on this phone, separate from the week list.</p>';
+    html += '</div></section>';
+
+    return html;
   }
 
   function render() {
@@ -789,6 +1006,8 @@
         "Not every week — when she’s in the mode: declutter, paint, bigger resets.");
       html += renderSubcard("Extra this week", "💕", "extras", null,
         "Anything else she wants on the list.");
+    } else if (activeTab === "ethan") {
+      html += renderEthanPanel();
     } else {
       var day = activeTab;
       var cleanName = CLEAN_LABELS[day] || "Daily task";
@@ -803,6 +1022,7 @@
 
     root.innerHTML = html;
     fillTextareas(root);
+    if (activeTab === "ethan") fillEthanFields();
     updatePastSelect();
     updateStatus();
     refreshWeeklyQuote();
@@ -884,13 +1104,40 @@
 
   root.addEventListener("change", function (e) {
     var t = e.target;
+    if (t.matches('input[type=checkbox][data-ethan-list]')) {
+      var elist = ethan[t.getAttribute("data-ethan-list")];
+      var eitem = elist && elist[+t.getAttribute("data-idx")];
+      if (eitem) { eitem.done = !!t.checked; saveEthan(); }
+      return;
+    }
     if (!t.matches('input[type=checkbox][data-sec]')) return;
     var item = getItem(t.getAttribute("data-sec"), t.getAttribute("data-day"), +t.getAttribute("data-idx"));
     if (item) { item.done = !!t.checked; persist(); }
   });
   root.addEventListener("input", function (e) {
     var t = e.target;
-    if (!t.matches("textarea.item-text")) return;
+    if (t.id === "ethanNextFootball") { ethan.nextFootball = t.value; saveEthan(); return; }
+    if (t.id === "ethanNextSoccer") { ethan.nextSoccer = t.value; saveEthan(); return; }
+    if (t.id === "ethanCalStatus") { ethan.calendarStatus = t.value; saveEthan(); return; }
+    if (t.id === "ethanNotes") {
+      ethan.notes = t.value;
+      saveEthan();
+      t.style.height = "auto";
+      t.style.height = Math.min(160, Math.max(72, t.scrollHeight)) + "px";
+      return;
+    }
+    if (t.matches("textarea.item-text[data-ethan-list]")) {
+      var elist = ethan[t.getAttribute("data-ethan-list")];
+      var eitem = elist && elist[+t.getAttribute("data-idx")];
+      if (eitem) {
+        eitem.text = t.value;
+        saveEthan();
+        t.style.height = "auto";
+        t.style.height = Math.min(120, t.scrollHeight) + "px";
+      }
+      return;
+    }
+    if (!t.matches("textarea.item-text[data-sec]")) return;
     var item = getItem(t.getAttribute("data-sec"), t.getAttribute("data-day"), +t.getAttribute("data-idx"));
     if (item) {
       item.text = t.value;
@@ -900,6 +1147,30 @@
     }
   });
   root.addEventListener("click", function (e) {
+    if (e.target.closest("#btnOpenSportsyou")) {
+      showToast("Open the sportsYou app on your phone — coach updates live on the message board");
+      return;
+    }
+    var eAdd = e.target.closest("[data-ethan-add]");
+    if (eAdd) {
+      var addKey = eAdd.getAttribute("data-ethan-add");
+      if (!Array.isArray(ethan[addKey])) ethan[addKey] = [];
+      ethan[addKey].push({ text: "", done: false });
+      saveEthan(); render();
+      return;
+    }
+    var eRm = e.target.closest(".remove[data-ethan-list]");
+    if (eRm) {
+      var rmKey = eRm.getAttribute("data-ethan-list");
+      var rmIdx = +eRm.getAttribute("data-idx");
+      var rmList = ethan[rmKey];
+      if (rmList) {
+        rmList.splice(rmIdx, 1);
+        if (!rmList.length) rmList.push({ text: "", done: false });
+        saveEthan(); render();
+      }
+      return;
+    }
     var add = e.target.closest("[data-add-sec]");
     if (add) {
       var sec = add.getAttribute("data-add-sec");
