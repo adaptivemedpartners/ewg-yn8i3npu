@@ -6,35 +6,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-<meta name="theme-color" content="#f9a8d4" />
+<meta name="theme-color" content="#d8bfae" />
 <meta name="mobile-web-app-capable" content="yes" />
 <title>Erica’s Weekly Glow List</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,400;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --blush: #fff7fa;
-    --pink: #fce7f3;
-    --rose: #f9a8d4;
-    --deep: #9d174d;
-    --ink: #831843;
-    --muted: #9d174d88;
-    --cream: #fffbfe;
+    --blush: #fbf7f2;
+    --pink: #efe4d8;
+    --rose: #d8bfae;
+    --deep: #4a5a70;
+    --ink: #26364f;
+    --muted: #4a5a7088;
+    --navy: #26364f;
+    --slate: #4a5a70;
+    --line: #e4d7c9;
+    --cream: #fdfaf6;
     --mint: #d1fae5;
-    --glow: 0 0 18px rgba(251, 207, 232, 0.35), 0 0 36px rgba(252, 231, 243, 0.4);
-    --card-glow: 0 6px 22px rgba(190, 24, 93, 0.08), 0 0 0 1px rgba(251, 207, 232, 0.85);
+    --glow: 0 0 18px rgba(228,215,201, 0.35), 0 0 36px rgba(239,228,216, 0.4);
+    --card-glow: 0 6px 22px rgba(38,54,79, 0.08), 0 0 0 1px rgba(228,215,201, 0.85);
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    font-family: "Quicksand", system-ui, sans-serif;
+    font-family: "DM Sans", system-ui, sans-serif;
     color: var(--ink);
     background:
-      radial-gradient(ellipse 80% 50% at 10% 0%, #fdf2f8 0%, transparent 55%),
-      radial-gradient(ellipse 70% 45% at 100% 10%, #fce7f3 0%, transparent 50%),
-      radial-gradient(ellipse 60% 40% at 50% 100%, #fff1f5 0%, transparent 45%),
-      linear-gradient(180deg, #fffbfe 0%, #fff7fa 40%, #fdf2f8 100%);
+      radial-gradient(ellipse 80% 50% at 10% 0%, #f4ece3 0%, transparent 55%),
+      radial-gradient(ellipse 70% 45% at 100% 10%, #efe4d8 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 50% 100%, #f6efe7 0%, transparent 45%),
+      linear-gradient(180deg, #fdfaf6 0%, #fbf7f2 40%, #f4ece3 100%);
     min-height: 100vh;
     line-height: 1.45;
     overflow-x: hidden;
@@ -42,7 +45,7 @@
   .deco {
     position: fixed; pointer-events: none; z-index: 0; opacity: 0.38;
     width: 88px; height: 88px; background-size: contain; background-repeat: no-repeat;
-    filter: drop-shadow(0 0 8px rgba(244,114,182,.18));
+    filter: drop-shadow(0 0 8px rgba(196,122,94,.18));
   }
   .deco.f1 { top: 18px; left: 12px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSI+CiAgPGcgb3BhY2l0eT0iLjkiPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iOCIgZmlsbD0iI0ZCNzE4NSIvPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSIxOCIgcj0iMTAiIGZpbGw9IiNGOUE4RDQiLz4KICAgIDxjaXJjbGUgY3g9IjQwIiBjeT0iNjIiIHI9IjEwIiBmaWxsPSIjRjlBOEQ0Ii8+CiAgICA8Y2lyY2xlIGN4PSIxOCIgY3k9IjQwIiByPSIxMCIgZmlsbD0iI0ZEQTRBRiIvPgogICAgPGNpcmNsZSBjeD0iNjIiIGN5PSI0MCIgcj0iMTAiIGZpbGw9IiNGREE0QUYiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICA8L2c+Cjwvc3ZnPg=='); }
   .deco.f2 { top: 40px; right: 16px; width: 72px; height: 72px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSI+CiAgPGcgb3BhY2l0eT0iLjkiPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iOCIgZmlsbD0iI0ZCNzE4NSIvPgogICAgPGNpcmNsZSBjeD0iNDAiIGN5PSIxOCIgcj0iMTAiIGZpbGw9IiNGOUE4RDQiLz4KICAgIDxjaXJjbGUgY3g9IjQwIiBjeT0iNjIiIHI9IjEwIiBmaWxsPSIjRjlBOEQ0Ii8+CiAgICA8Y2lyY2xlIGN4PSIxOCIgY3k9IjQwIiByPSIxMCIgZmlsbD0iI0ZEQTRBRiIvPgogICAgPGNpcmNsZSBjeD0iNjIiIGN5PSI0MCIgcj0iMTAiIGZpbGw9IiNGREE0QUYiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iMjQiIHI9IjkiIGZpbGw9IiNGQkNGRTgiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICAgIDxjaXJjbGUgY3g9IjU2IiBjeT0iNTYiIHI9IjkiIGZpbGw9IiNGRUNERDMiLz4KICA8L2c+Cjwvc3ZnPg=='); transform: rotate(25deg); }
@@ -60,9 +63,9 @@
     text-align: center;
     padding: 24px 18px 18px;
     border-radius: 26px;
-    background: linear-gradient(145deg, #ffffff 0%, #fff7fa 50%, #fdf2f8 100%);
-    box-shadow: var(--glow), 0 0 0 1px rgba(251, 207, 232, 0.55);
-    border: 1px solid rgba(251, 207, 232, 0.9);
+    background: linear-gradient(145deg, #ffffff 0%, #fbf7f2 50%, #f4ece3 100%);
+    box-shadow: var(--glow), 0 0 0 1px rgba(228,215,201, 0.55);
+    border: 1px solid rgba(228,215,201, 0.9);
     margin-bottom: 14px;
     position: relative;
     overflow: hidden;
@@ -79,58 +82,58 @@
     100% { background-position: 200% 50%; }
   }
   .hero .script {
-    font-family: "Great Vibes", cursive;
+    font-family: "Fraunces", Georgia, serif;
     font-size: clamp(2.2rem, 6.5vw, 3.1rem);
     margin: 0 0 4px; line-height: 1.15;
     color: transparent;
-    background: linear-gradient(90deg, #db2777 0%, #f9a8d4 40%, #fbbf24 70%, #be185d 100%);
+    background: linear-gradient(90deg, #a85f45 0%, #d8bfae 40%, #c9a24a 70%, #2e4060 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: sparkShimmer 4.5s linear infinite;
-    filter: drop-shadow(0 0 6px rgba(244, 114, 182, 0.28));
+    filter: drop-shadow(0 0 6px rgba(196,122,94, 0.28));
   }
   .hero h1 {
     margin: 0; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: #9d174d;
+    color: #4a5a70;
   }
   .hero p {
-    margin: 10px auto 0; max-width: 34rem; color: #9d174d; font-size: 0.9rem; opacity: 0.88;
+    margin: 10px auto 0; max-width: 34rem; color: #4a5a70; font-size: 0.9rem; opacity: 0.88;
   }
 
   .pill-row {
     display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 12px 0 4px;
   }
   .pill {
-    font-size: 0.74rem; font-weight: 650; color: #9d174d;
+    font-size: 0.74rem; font-weight: 650; color: #4a5a70;
     background: rgba(255,255,255,0.9);
-    border: 1px solid #fbcfe8; border-radius: 999px;
+    border: 1px solid #e4d7c9; border-radius: 999px;
     padding: 5px 12px;
-    box-shadow: 0 0 8px rgba(251,207,232,0.35);
+    box-shadow: 0 0 8px rgba(228,215,201,0.35);
   }
 
   .hero .glow-quote {
     margin: 12px auto 0;
     max-width: 26rem;
-    font-family: "Great Vibes", cursive;
+    font-family: "Fraunces", Georgia, serif;
     font-size: clamp(1.3rem, 4vw, 1.65rem);
     line-height: 1.35;
     color: transparent;
-    background: linear-gradient(90deg, #be185d 0%, #f472b6 45%, #fbbf24 80%, #9d174d 100%);
+    background: linear-gradient(90deg, #2e4060 0%, #c47a5e 45%, #c9a24a 80%, #4a5a70 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: sparkShimmer 5.5s linear infinite;
-    filter: drop-shadow(0 0 5px rgba(244, 114, 182, 0.22));
+    filter: drop-shadow(0 0 5px rgba(196,122,94, 0.22));
     opacity: 0.95;
   }
   .hero .glow-quote-wrap {
     margin-top: 10px;
     padding-top: 10px;
-    border-top: 1px solid rgba(251, 207, 232, 0.65);
+    border-top: 1px solid rgba(228,215,201, 0.65);
   }
   .his {
     background: linear-gradient(90deg, #ecfdf5, #f0fdfa);
@@ -143,8 +146,8 @@
     margin-bottom: 12px;
     padding: 12px 12px 14px;
     border-radius: 18px;
-    background: linear-gradient(180deg, #ffffff 0%, #fffafc 100%);
-    border: 1px solid #fbcfe8;
+    background: linear-gradient(180deg, #ffffff 0%, #fbf7f2 100%);
+    border: 1px solid #e4d7c9;
     box-shadow: var(--card-glow);
   }
   .week-bar .row-btns {
@@ -154,47 +157,47 @@
     display: flex; flex-direction: column; gap: 4px;
   }
   .week-bar select#pastWeeks {
-    width: 100%; border: 1px solid #f9a8d4; border-radius: 12px;
+    width: 100%; border: 1px solid #d8bfae; border-radius: 12px;
     padding: 12px; font: inherit; font-size: 16px; color: var(--ink);
     background: rgba(255,255,255,0.95);
     min-height: 44px;
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8);
   }
   .week-bar select#pastWeeks:focus {
-    outline: none; border-color: #f9a8d4;
-    box-shadow: 0 0 0 3px rgba(249,168,212,0.28);
+    outline: none; border-color: #d8bfae;
+    box-shadow: 0 0 0 3px rgba(216,191,174,0.28);
   }
   .status-chip {
-    text-align: center; font-size: 0.78rem; font-weight: 650; color: #9d174d;
+    text-align: center; font-size: 0.78rem; font-weight: 650; color: #4a5a70;
     opacity: 0.9;
   }
   .toolbar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 14px; }
   button {
     border: none; border-radius: 999px; padding: 10px 16px; font-weight: 700;
     font-family: inherit; cursor: pointer;
-    background: linear-gradient(135deg, #f9a8d4, #db2777);
+    background: linear-gradient(135deg, #d8bfae, #a85f45);
     color: #fff;
-    box-shadow: 0 0 14px rgba(244, 114, 182, 0.32);
+    box-shadow: 0 0 14px rgba(196,122,94, 0.32);
   }
   button.secondary {
-    background: #fff; color: #9d174d; border: 1px solid #f9a8d4;
-    box-shadow: 0 0 8px rgba(251, 207, 232, 0.45);
+    background: #fff; color: #4a5a70; border: 1px solid #d8bfae;
+    box-shadow: 0 0 8px rgba(228,215,201, 0.45);
   }
   button:disabled { opacity: 0.55; cursor: default; }
   .week-meta {
     display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px;
   }
   @media (max-width: 560px) { .week-meta { grid-template-columns: 1fr; } }
-  label.field { display: block; font-size: 0.75rem; color: #9d174d; font-weight: 700; margin-bottom: 4px; }
+  label.field { display: block; font-size: 0.75rem; color: #4a5a70; font-weight: 700; margin-bottom: 4px; }
   input.meta, textarea.item-text {
-    width: 100%; border: 1px solid #f9a8d4; border-radius: 12px;
+    width: 100%; border: 1px solid #d8bfae; border-radius: 12px;
     padding: 10px 12px; font: inherit; color: var(--ink);
     background: rgba(255,255,255,0.92);
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8);
   }
   input.meta:focus, textarea.item-text:focus {
-    outline: none; border-color: #f472b6;
-    box-shadow: 0 0 0 3px rgba(249,168,212,0.28);
+    outline: none; border-color: #c47a5e;
+    box-shadow: 0 0 0 3px rgba(216,191,174,0.28);
   }
 
   /* Day tabs */
@@ -207,22 +210,22 @@
   .day-tabs::-webkit-scrollbar { display: none; }
   .day-tab {
     flex: 1 1 0; min-width: 40px;
-    border: 1px solid #fbcfe8;
+    border: 1px solid #e4d7c9;
     background: rgba(255,255,255,0.92);
-    color: #9d174d;
+    color: #4a5a70;
     border-radius: 999px;
     padding: 10px 6px;
     font-size: 0.78rem; font-weight: 700;
     letter-spacing: 0.02em;
-    box-shadow: 0 0 6px rgba(251,207,232,0.3);
+    box-shadow: 0 0 6px rgba(228,215,201,0.3);
     white-space: nowrap;
     text-align: center;
   }
   .day-tab.active {
-    background: linear-gradient(135deg, #fbcfe8, #f9a8d4);
-    color: #831843;
-    border-color: #f9a8d4;
-    box-shadow: 0 0 12px rgba(244,114,182,0.28);
+    background: linear-gradient(135deg, #e4d7c9, #d8bfae);
+    color: #26364f;
+    border-color: #d8bfae;
+    box-shadow: 0 0 12px rgba(196,122,94,0.28);
   }
   .day-tab.sparkle-tab {
     flex: 1.15 1 0; min-width: 52px;
@@ -230,7 +233,7 @@
   }
   .day-panel-title {
     text-align: center;
-    font-size: 0.95rem; font-weight: 700; color: #9d174d;
+    font-size: 0.95rem; font-weight: 700; color: #4a5a70;
     margin: 0 0 12px;
   }
   .day-panel-title .soft {
@@ -240,20 +243,20 @@
   /* Interview-card spirit: stacked subcards */
   .subcard {
     border-radius: 18px; margin-bottom: 12px; overflow: hidden;
-    background: linear-gradient(180deg, #ffffff 0%, #fffafc 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #fbf7f2 100%);
     box-shadow: var(--card-glow);
-    border: 1px solid #fbcfe8;
+    border: 1px solid #e4d7c9;
   }
   .subcard > h2 {
     margin: 0; padding: 12px 14px 8px;
-    font-size: 0.98rem; font-weight: 700; color: #9d174d;
-    background: linear-gradient(90deg, #fdf2f8, #fff7fa 60%, #ffffff);
-    border-bottom: 1px solid #fce7f3;
+    font-size: 0.98rem; font-weight: 700; color: #4a5a70;
+    background: linear-gradient(90deg, #f4ece3, #fbf7f2 60%, #ffffff);
+    border-bottom: 1px solid #efe4d8;
     display: flex; align-items: center; gap: 8px;
   }
-  .subcard > h2 .emoji { filter: drop-shadow(0 0 4px rgba(244,114,182,.3)); }
+  .subcard > h2 .emoji { filter: drop-shadow(0 0 4px rgba(196,122,94,.3)); }
   .subcard > .sub {
-    margin: 0; padding: 6px 14px 0; font-size: 0.78rem; color: #9d174d; opacity: 0.8;
+    margin: 0; padding: 6px 14px 0; font-size: 0.78rem; color: #4a5a70; opacity: 0.8;
   }
   .subcard .body {
     padding: 8px 12px 12px;
@@ -262,29 +265,29 @@
   ul.items { list-style: none; margin: 0; padding: 0; }
   li.row {
     display: grid; grid-template-columns: 28px 1fr 32px; gap: 8px;
-    align-items: start; padding: 6px 0; border-bottom: 1px dashed #fce7f3;
+    align-items: start; padding: 6px 0; border-bottom: 1px dashed #efe4d8;
   }
   li.row:last-child { border-bottom: none; }
   li.row input[type=checkbox] {
-    width: 18px; height: 18px; margin-top: 9px; accent-color: #ec4899;
+    width: 18px; height: 18px; margin-top: 9px; accent-color: #c47a5e;
   }
   li.row .remove {
-    border: none; background: transparent; color: #f9a8d4; font-size: 1.15rem;
+    border: none; background: transparent; color: #d8bfae; font-size: 1.15rem;
     padding: 4px; cursor: pointer; box-shadow: none;
   }
-  li.row .remove:hover { color: #db2777; }
+  li.row .remove:hover { color: #a85f45; }
   .add-row {
     margin-top: 8px; width: 100%;
-    border: 1px dashed #f9a8d4 !important;
-    background: #fff7fa !important; color: #9d174d !important;
+    border: 1px dashed #d8bfae !important;
+    background: #fbf7f2 !important; color: #4a5a70 !important;
     box-shadow: none !important;
   }
   footer {
-    text-align: center; margin-top: 20px; font-size: 0.8rem; color: #9d174d; opacity: 0.8;
+    text-align: center; margin-top: 20px; font-size: 0.8rem; color: #4a5a70; opacity: 0.8;
   }
   footer .heart {
-    font-family: "Great Vibes", cursive; font-size: 1.4rem; color: #f472b6;
-    text-shadow: 0 0 8px rgba(244,114,182,0.35);
+    font-family: "Fraunces", Georgia, serif; font-size: 1.4rem; color: #c47a5e;
+    text-shadow: 0 0 8px rgba(196,122,94,0.35);
   }
   footer .hist-note {
     margin-top: 8px; font-size: 0.75rem; max-width: 28rem; margin-left: auto; margin-right: auto;
@@ -295,10 +298,10 @@
     position: fixed; left: 50%; bottom: max(24px, env(safe-area-inset-bottom));
     transform: translateX(-50%) translateY(120%);
     z-index: 100; pointer-events: none;
-    background: linear-gradient(135deg, #f9a8d4, #db2777);
+    background: linear-gradient(135deg, #d8bfae, #a85f45);
     color: #fff; font-weight: 700; font-size: 0.9rem;
     padding: 12px 18px; border-radius: 999px;
-    box-shadow: 0 8px 24px rgba(190, 24, 93, 0.32);
+    box-shadow: 0 8px 24px rgba(38,54,79, 0.32);
     transition: transform 0.28s ease, opacity 0.2s ease;
     max-width: calc(100% - 32px); text-align: center;
     opacity: 0; visibility: hidden;
@@ -384,40 +387,40 @@
   .proj-new { display: flex; gap: 8px; margin-bottom: 12px; }
   .proj-new input { flex: 1; min-width: 0; }
   .proj-in {
-    width: 100%; border: 1px solid #fbcfe8; border-radius: 12px; padding: 10px 12px;
+    width: 100%; border: 1px solid #e4d7c9; border-radius: 12px; padding: 10px 12px;
     font: inherit; font-size: 16px; color: var(--ink); background: rgba(255,255,255,0.92); box-sizing: border-box;
   }
-  .proj-in:focus { outline: none; border-color: #f472b6; box-shadow: 0 0 0 3px rgba(244,114,182,0.2); }
+  .proj-in:focus { outline: none; border-color: #c47a5e; box-shadow: 0 0 0 3px rgba(196,122,94,0.2); }
   .proj-name { font-weight: 700; font-size: 1rem; border-color: transparent; background: transparent; padding: 6px 8px; }
   .proj-head { display: flex; align-items: center; gap: 8px; padding: 12px 12px 6px; }
   .proj-head .proj-name { flex: 1; min-width: 0; }
-  .proj-count { flex: none; font-size: 0.8rem; font-weight: 700; color: #be185d; background: #fce7f3; border-radius: 999px; padding: 4px 10px; }
+  .proj-count { flex: none; font-size: 0.8rem; font-weight: 700; color: #2e4060; background: #efe4d8; border-radius: 999px; padding: 4px 10px; }
   .proj-count.done { background: var(--mint); color: #047857; }
-  .proj-bar { height: 6px; margin: 0 14px 8px; border-radius: 99px; background: #fce7f3; overflow: hidden; }
-  .proj-bar > span { display: block; height: 100%; background: linear-gradient(90deg,#f9a8d4,#f472b6); border-radius: 99px; }
+  .proj-bar { height: 6px; margin: 0 14px 8px; border-radius: 99px; background: #efe4d8; overflow: hidden; }
+  .proj-bar > span { display: block; height: 100%; background: linear-gradient(90deg,#d8bfae,#c47a5e); border-radius: 99px; }
   .proj-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 12px 8px; }
-  .proj-meta label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: .05em; color: #be185d; font-weight: 700; display: block; margin-bottom: 3px; }
+  .proj-meta label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: .05em; color: #2e4060; font-weight: 700; display: block; margin-bottom: 3px; }
   .proj-meta .full { grid-column: 1 / -1; }
   .proj-meta textarea.proj-in { min-height: 44px; resize: vertical; }
   ul.subs { list-style: none; margin: 0; padding: 0 12px; }
-  li.sub-row { display: grid; grid-template-columns: 36px 1fr auto; gap: 6px; align-items: center; padding: 6px 0; border-top: 1px dashed #fbcfe8; }
-  li.sub-row input[type=checkbox] { width: 22px; height: 22px; accent-color: #ec4899; margin: 0 auto; }
+  li.sub-row { display: grid; grid-template-columns: 36px 1fr auto; gap: 6px; align-items: center; padding: 6px 0; border-top: 1px dashed #e4d7c9; }
+  li.sub-row input[type=checkbox] { width: 22px; height: 22px; accent-color: #c47a5e; margin: 0 auto; }
   li.sub-row.is-done .proj-in { text-decoration: line-through; opacity: 0.6; }
   .sub-tools { display: flex; gap: 2px; }
   .mini {
-    min-width: 36px; min-height: 36px; border: none; border-radius: 10px; background: #fff1f5; color: #9d174d;
+    min-width: 36px; min-height: 36px; border: none; border-radius: 10px; background: #f6efe7; color: #4a5a70;
     font: inherit; font-size: 0.95rem; cursor: pointer; padding: 0 6px;
   }
   .mini:disabled { opacity: 0.3; }
-  .mini.plan { background: #fce7f3; font-weight: 700; font-size: 0.78rem; }
-  .planned-chip { grid-column: 2 / -1; font-size: 0.72rem; color: #be185d; opacity: 0.85; margin-top: -2px; }
+  .mini.plan { background: #efe4d8; font-weight: 700; font-size: 0.78rem; }
+  .planned-chip { grid-column: 2 / -1; font-size: 0.72rem; color: #2e4060; opacity: 0.85; margin-top: -2px; }
   .proj-actions { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 12px 14px; }
   .proj-actions button { min-height: 40px; }
-  .plan-pick { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 8px; background: #fff7fa; border-radius: 12px; border: 1px solid #fbcfe8; }
-  .plan-pick .lbl { font-size: 0.78rem; font-weight: 700; color: #9d174d; width: 100%; }
+  .plan-pick { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 8px; background: #fbf7f2; border-radius: 12px; border: 1px solid #e4d7c9; }
+  .plan-pick .lbl { font-size: 0.78rem; font-weight: 700; color: #4a5a70; width: 100%; }
   .plan-pick .mini { min-width: 42px; min-height: 40px; }
-  .proj-empty { text-align: center; color: #9d174d; opacity: 0.8; padding: 18px; font-size: 0.9rem; }
-  li.row.from-proj textarea.item-text { background: #fff7fa; }
+  .proj-empty { text-align: center; color: #4a5a70; opacity: 0.8; padding: 18px; font-size: 0.9rem; }
+  li.row.from-proj textarea.item-text { background: #fbf7f2; }
   @media (max-width: 430px) {
     .proj-meta { grid-template-columns: 1fr; }
     .mini { min-width: 40px; }
@@ -426,6 +429,25 @@
     li.sub-row { grid-template-columns: 36px 1fr; }
     li.sub-row .sub-tools { grid-column: 2; justify-content: flex-end; }
   }
+
+  .sync-bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 10px 0 6px; }
+  .sync-dot { font-size: 0.78rem; font-weight: 700; padding: 5px 10px 5px 22px; border-radius: 999px; position: relative; background: #fff; border: 1px solid var(--line); color: var(--slate); }
+  .sync-dot::before { content: ""; position: absolute; left: 9px; top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: #b8b0a6; }
+  .sync-dot.ok::before { background: #6f9a6c; } .sync-dot.pend::before { background: #c9a24a; } .sync-dot.bad::before { background: #c0583c; }
+  button.small { min-height: 34px; padding: 6px 12px; font-size: 0.8rem; }
+  .sync-card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 14px; margin-bottom: 12px; box-shadow: var(--card-glow); }
+  .sync-card h3 { margin: 0 0 4px; font-size: 1rem; color: var(--navy); }
+  .sync-card p { margin: 0 0 10px; font-size: 0.85rem; color: var(--slate); }
+  .sync-card p.fine { margin-top: 10px; font-size: 0.75rem; }
+  .sync-card input { display: block; width: 100%; box-sizing: border-box; margin-bottom: 8px; border: 1px solid var(--line); border-radius: 12px; padding: 12px; font: inherit; font-size: 16px; color: var(--ink); }
+  .sync-err { min-height: 1.1em; font-size: 0.8rem; color: #b4532f; font-weight: 700; margin-bottom: 6px; }
+  .owner-pick { display: flex; gap: 6px; padding: 0 12px 8px; flex-wrap: wrap; }
+  .chip { border: 1px solid transparent; border-radius: 999px; padding: 4px 12px; font: inherit; font-size: 0.76rem; font-weight: 700; cursor: pointer; min-height: 32px; background: #f1ece5; color: #6b6259; }
+  .chip.mike.on, .chip-mike { background: #26364f; color: #fff; }
+  .chip.erica.on, .chip-erica { background: #c97b6b; color: #fff; }
+  .chip.both.on, .chip-both { background: #8a9f7e; color: #fff; }
+  .his { background: #26364f !important; color: #eef1f5 !important; border: none !important; }
+  .his strong { color: #fff !important; }
 
   @media print {
     body { background: #fff; }
@@ -440,6 +462,10 @@
     /* Print shows all days stacked */
     .print-all { display: block !important; }
   }
+  .hero .script { font-style: italic; font-weight: 600; letter-spacing: -0.01em; }
+  .hero .glow-quote { font-style: italic; font-weight: 400; }
+  .deco { filter: sepia(0.7) saturate(0.55) hue-rotate(-12deg); }
+  .day-tab.active { background: var(--navy) !important; color: #fff !important; border-color: var(--navy) !important; }
 </style>
 </head>
 <body>
@@ -450,9 +476,9 @@
 
   <div class="page">
     <header class="hero">
-      <p class="script">For Erica</p>
+      <p class="script">Mike &amp; Erica</p>
       <h1>Weekly Glow List</h1>
-      <p>Pretty checkmarks for workouts + house sparkle days. Save each week — look back anytime.</p>
+      <p>Our week, our house projects — checked off together. Save each week and look back anytime.</p>
       <div class="pill-row">
         <span class="pill">Day-by-day</span>
         <span class="pill">Mon–Sun</span>
@@ -463,6 +489,11 @@
       </div>
     </header>
 
+    <div class="sync-bar">
+      <span class="sync-dot" id="syncState">Not synced</span>
+      <button type="button" class="secondary small" id="btnSyncSetup">Share with Mike &amp; Erica</button>
+    </div>
+    <div class="sync-panel" id="syncPanel" hidden></div>
     <div class="his">
       <strong>Mike’s lane (not on her list):</strong> dishes · laundry · pool · flowers outside.
     </div>
@@ -503,8 +534,8 @@
 
     <footer>
       <div class="heart">with love</div>
-      Saves in this browser · weekends open if she wants them · workouts left for her words
-      <div class="hist-note">Week history stays on this phone/browser (localStorage). Not cloud-synced unless Mike asks later.</div>
+      Saves on this phone, and shares with the other phone once the family code is set
+      <div class="hist-note">Works offline too — changes catch up when you’re back online.</div>
     </footer>
   </div>
   <div id="toast" role="status" aria-live="polite"></div>
@@ -672,6 +703,7 @@
 
   function saveWorking(st) {
     localStorage.setItem(KEY, JSON.stringify(st));
+    if (window.__glowDirty) window.__glowDirty();
   }
 
   function loadArchive() {
@@ -691,6 +723,7 @@
 
   function saveArchive(arch) {
     localStorage.setItem(ARCHIVE_KEY, JSON.stringify(arch));
+    if (window.__glowDirty) window.__glowDirty();
   }
 
   function snapshotFromState(st, key) {
@@ -1038,7 +1071,7 @@
     } catch (e) { return { projects: [] }; }
   }
   var proj = loadProjects();
-  function saveProjects() { try { localStorage.setItem(PROJ_KEY, JSON.stringify(proj)); } catch (e) {} }
+  function saveProjects() { try { localStorage.setItem(PROJ_KEY, JSON.stringify(proj)); } catch (e) {} if (window.__glowDirty) window.__glowDirty(); }
   function findProj(id) { for (var i = 0; i < proj.projects.length; i++) if (proj.projects[i].id === id) return proj.projects[i]; return null; }
   function findSub(p, sid) { if (!p) return null; for (var i = 0; i < p.subs.length; i++) if (p.subs[i].id === sid) return p.subs[i]; return null; }
   function esc(v) { return String(v == null ? "" : v).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
@@ -1126,6 +1159,9 @@
         '<input class="proj-in proj-name" data-pf="name" data-pid="' + p.id + '" value="' + esc(p.name) + '" placeholder="Project name" aria-label="Project name" />' +
         '<span class="proj-count' + (n && d === n ? ' done' : '') + '">' + d + '/' + n + '</span></div>' +
         '<div class="proj-bar"><span style="width:' + pct + '%"></span></div>' +
+        '<div class="owner-pick">' + ["Mike", "Erica", "Both"].map(function (o) {
+          return '<button type="button" class="chip ' + o.toLowerCase() + (p.owner === o ? ' on' : '') + '" data-pact="owner" data-owner="' + o + '" data-pid="' + p.id + '">' + o + '</button>';
+        }).join("") + '</div>' +
         '<div class="proj-meta">' +
           '<div><label>Room / area</label><input class="proj-in" data-pf="room" data-pid="' + p.id + '" value="' + esc(p.room) + '" placeholder="Garage, kitchen…" /></div>' +
           '<div><label>Target week</label><select class="proj-in" data-pf="week" data-pid="' + p.id + '">' + weekOptions(p.week || "") + '</select></div>' +
@@ -1222,6 +1258,7 @@
     if (act === "planopen") { var k = sid ? pid + ":" + sid : pid; planOpen = planOpen === k ? null : k; return render(); }
     if (act === "planday") return planIt(pid, sid, b.getAttribute("data-day"));
     if (!p) return;
+    if (act === "owner") { var ow = b.getAttribute("data-owner"); p.owner = p.owner === ow ? "" : ow; saveProjects(); return render(); }
     var i = sid ? p.subs.indexOf(findSub(p, sid)) : -1;
     if (act === "addsub") {
       var ns = { id: uid(), text: "", done: false };
@@ -1243,6 +1280,239 @@
     } else return;
     saveProjects(); render();
   });
+
+  /* ================= Shared sync (Supabase, family code) ================= */
+  var SB_URL = "https://pmbehaioxviyhdmmczfl.supabase.co";
+  var SB_KEY = "sb_publishable_DT-JPgQ-EmqguoVxBO7OEw_6jqNquK2";
+  var CODE_KEY = "erica_weekly_glow_family_code_v1";
+  var SYNC_KEY = "erica_weekly_glow_sync_v1"; /* {seq, first, meta:{k:{h,t}}} */
+  var sync = (function () {
+    try { var o = JSON.parse(localStorage.getItem(SYNC_KEY) || "null"); if (o && o.meta) return o; } catch (e) {}
+    return { seq: 0, first: true, meta: {} };
+  })();
+  var code = null; try { code = localStorage.getItem(CODE_KEY); } catch (e) {}
+  var syncTimer = null, pollTimer = null, busy = false, lastOk = 0, deferRender = false;
+  function saveSyncMeta() { try { localStorage.setItem(SYNC_KEY, JSON.stringify(sync)); } catch (e) {} }
+  function rpc(name, args) {
+    return fetch(SB_URL + "/rest/v1/rpc/" + name, {
+      method: "POST", headers: { "Content-Type": "application/json", apikey: SB_KEY, Authorization: "Bearer " + SB_KEY },
+      body: JSON.stringify(args || {})
+    }).then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); });
+  }
+  function hashStr(str) { var h = 5381; for (var i = 0; i < str.length; i++) h = ((h << 5) + h + str.charCodeAt(i)) | 0; return String(h) + ":" + str.length; }
+  function setSyncUi(kind, txt) {
+    var el = document.getElementById("syncState");
+    el.className = "sync-dot " + kind; el.textContent = txt;
+    document.getElementById("btnSyncSetup").textContent = code ? "Code" : "Share with Mike & Erica";
+  }
+  /* --- flatten / unflatten everything the app saves --- */
+  function flatten() {
+    var m = {};
+    m["w:meta"] = { weekOf: state.weekOf || "", notes: state.notes || "" };
+    WEEKDAYS.forEach(function (d) {
+      m["w:workouts:" + d] = state.workouts[d] || [];
+      m["w:cleaning:" + d] = state.cleaning[d] || [];
+    });
+    m["w:monthly"] = state.monthly || [];
+    m["w:extras"] = state.extras || [];
+    m["a:cur"] = { key: archive.currentKey || null };
+    Object.keys(archive.weeks || {}).forEach(function (k) { m["a:wk:" + k] = archive.weeks[k]; });
+    proj.projects.forEach(function (p, i) {
+      m["p:" + p.id] = { name: p.name || "", room: p.room || "", notes: p.notes || "", week: p.week || "", owner: p.owner || "",
+        done: !!p.done, created: p.created || "", order: p.subs.map(function (x) { return x.id; }) };
+      p.subs.forEach(function (x) { m["s:" + p.id + ":" + x.id] = { text: x.text || "", done: !!x.done }; });
+    });
+    return m;
+  }
+  function applyRemote(rows) {
+    var known = flatten();
+    rows.forEach(function (r) {
+      var lt = (sync.meta[r.k] && sync.meta[r.k].t) || 0;
+      if (r.t <= lt) return;
+      if (r.v === null) delete known[r.k]; else known[r.k] = r.v;
+      sync.meta[r.k] = { h: hashStr(JSON.stringify(r.v)), t: r.t };
+    });
+    unflatten(known);
+    /* re-hash after migrate so normalisation doesn't look like a local edit */
+    var fm = flatten(); rows.forEach(function (r) { if (sync.meta[r.k] && !sync.meta[r.k].dirty && r.k in fm) sync.meta[r.k].h = hashStr(JSON.stringify(fm[r.k])); });
+  }
+  function unflatten(m) {
+    var st = defaultState();
+    if (m["w:meta"]) { st.weekOf = m["w:meta"].weekOf; st.notes = m["w:meta"].notes; }
+    WEEKDAYS.forEach(function (d) {
+      if (m["w:workouts:" + d]) st.workouts[d] = m["w:workouts:" + d];
+      if (m["w:cleaning:" + d]) st.cleaning[d] = m["w:cleaning:" + d];
+    });
+    if (m["w:monthly"]) st.monthly = m["w:monthly"];
+    if (m["w:extras"]) st.extras = m["w:extras"];
+    state = migrateState(st);
+    var weeks = {};
+    Object.keys(m).forEach(function (k) { if (k.indexOf("a:wk:") === 0) weeks[k.slice(5)] = migrateState(m[k]); });
+    archive = { weeks: weeks, currentKey: (m["a:cur"] && m["a:cur"].key && weeks[m["a:cur"].key]) ? m["a:cur"].key : null };
+    var ps = [];
+    Object.keys(m).forEach(function (k) {
+      if (k.indexOf("p:") !== 0) return;
+      var id = k.slice(2), v = m[k];
+      var subs = [], seen = {};
+      (v.order || []).forEach(function (sid) { var sv = m["s:" + id + ":" + sid]; if (sv && !seen[sid]) { seen[sid] = 1; subs.push({ id: sid, text: sv.text, done: !!sv.done }); } });
+      Object.keys(m).forEach(function (k2) { var pre = "s:" + id + ":"; if (k2.indexOf(pre) === 0) { var sid = k2.slice(pre.length); if (!seen[sid]) { seen[sid] = 1; subs.push({ id: sid, text: m[k2].text, done: !!m[k2].done }); } } });
+      ps.push({ id: id, name: v.name, room: v.room, notes: v.notes, week: v.week, owner: v.owner || "", done: !!v.done, created: v.created, subs: subs });
+    });
+    ps.sort(function (a, b) { return String(b.created || "").localeCompare(String(a.created || "")); });
+    proj = { projects: ps };
+    var hook = window.__glowDirty; window.__glowDirty = null;
+    try { localStorage.setItem(KEY, JSON.stringify(state)); localStorage.setItem(ARCHIVE_KEY, JSON.stringify(archive)); localStorage.setItem(PROJ_KEY, JSON.stringify(proj)); } catch (e) {}
+    window.__glowDirty = hook;
+  }
+  /* first-sync merge of two lists: keep server, add local lines it doesn't have */
+  function mergeList(server, local) {
+    if (!Array.isArray(server)) return local; if (!Array.isArray(local)) return server;
+    var out = server.filter(function (x) { return String(x.text || "").trim() || server.length === 1; });
+    var have = {}; out.forEach(function (x) { have[(x.projId || "") + "|" + String(x.text || "").trim()] = x; });
+    local.forEach(function (x) {
+      var key = (x.projId || "") + "|" + String(x.text || "").trim();
+      if (!String(x.text || "").trim()) return;
+      if (have[key]) { if (x.done) have[key].done = true; return; }
+      have[key] = x; out.push(x);
+    });
+    out = out.filter(function (x, i) { return String(x.text || "").trim() || out.length === 1; });
+    return out.length ? out : [{ text: "", done: false }];
+  }
+  function mergeFirst(rows) {
+    var local = flatten(), merged = {};
+    rows.forEach(function (r) { if (r.v !== null) merged[r.k] = r.v; sync.meta[r.k] = { h: hashStr(JSON.stringify(r.v)), t: r.t }; });
+    Object.keys(local).forEach(function (k) {
+      var lv = local[k], sv = merged[k];
+      if (sv === undefined) { merged[k] = lv; return; }
+      if (Array.isArray(sv)) merged[k] = mergeList(sv, lv);
+      else if (k === "w:meta") merged[k] = { weekOf: sv.weekOf || lv.weekOf, notes: sv.notes || lv.notes };
+      else if (k.indexOf("a:wk:") === 0) {
+        var w = JSON.parse(JSON.stringify(sv));
+        WEEKDAYS.forEach(function (d) {
+          ["workouts", "cleaning"].forEach(function (sec) { if (w[sec] && lv[sec]) w[sec][d] = mergeList(w[sec][d], lv[sec][d]); });
+        });
+        w.monthly = mergeList(w.monthly, lv.monthly); w.extras = mergeList(w.extras, lv.extras);
+        merged[k] = w;
+      } else if (k.indexOf("p:") === 0) {
+        var o = JSON.parse(JSON.stringify(sv));
+        (lv.order || []).forEach(function (id) { if ((o.order || []).indexOf(id) < 0) (o.order = o.order || []).push(id); });
+        merged[k] = o;
+      }
+    });
+    if (!rows.length) { /* nothing on server: just upload this device */ }
+    unflatten(merged);
+  }
+  function collectChanges() {
+    var m = flatten(), out = [], now = Date.now();
+    Object.keys(m).forEach(function (k) {
+      var h = hashStr(JSON.stringify(m[k]));
+      var me = sync.meta[k];
+      if (!me || me.h !== h) { var t = Math.max(now, (me && me.t || 0) + 1); sync.meta[k] = { h: h, t: t, dirty: 1 }; out.push({ k: k, v: m[k], t: t }); }
+    });
+    Object.keys(sync.meta).forEach(function (k) {
+      if (!(k in m) && sync.meta[k].h !== "null") { var t = Math.max(now, sync.meta[k].t + 1); sync.meta[k] = { h: "null", t: t, dirty: 1 }; out.push({ k: k, v: null, t: t }); }
+    });
+    return out;
+  }
+  function isTyping() {
+    var a = document.activeElement;
+    return a && (a.tagName === "TEXTAREA" || (a.tagName === "INPUT" && a.type !== "checkbox") || a.tagName === "SELECT");
+  }
+  function syncNow() {
+    if (!code || busy) return Promise.resolve();
+    busy = true;
+    if (!sync.first) collectChanges(); /* stamp local edits before pulling so newer local edits win */
+    return rpc("glow_pull", { p_code: code, p_since: sync.first ? 0 : sync.seq }).then(function (res) {
+      if (res.error) throw res;
+      var rows = res.rows || [];
+      if (sync.first) { mergeFirst(rows); sync.first = false; }
+      else if (rows.length) applyRemote(rows);
+      sync.seq = Math.max(sync.seq, res.seq || 0);
+      if (rows.length) { if (isTyping()) deferRender = true; else render(); }
+      collectChanges();
+      var ch = [];
+      Object.keys(sync.meta).forEach(function (k) { if (sync.meta[k].dirty) ch.push(k); });
+      var m = flatten();
+      ch = ch.map(function (k) { return { k: k, v: k in m ? m[k] : null, t: sync.meta[k].t }; });
+      saveSyncMeta();
+      if (!ch.length) return;
+      return rpc("glow_push", { p_code: code, p_rows: ch }).then(function (r2) {
+        if (r2.error) throw r2;
+        ch.forEach(function (c) { if (sync.meta[c.k] && sync.meta[c.k].t === c.t) delete sync.meta[c.k].dirty; });
+      });
+    }).then(function () {
+      busy = false; lastOk = Date.now(); saveSyncMeta();
+      setSyncUi("ok", "Synced");
+    }).catch(function (e) {
+      busy = false;
+      if (e && e.error === "bad_code") { setSyncUi("bad", "Code changed — re-enter"); code = null; try { localStorage.removeItem(CODE_KEY); } catch (x) {} openPanel("join"); }
+      else if (e && e.error === "locked") setSyncUi("bad", "Too many tries — wait 10 min");
+      else setSyncUi("off", navigator.onLine === false ? "Offline · saved on phone" : "Offline · will retry");
+    });
+  }
+  window.__glowDirty = function () {
+    if (!code) return;
+    setSyncUi("pend", "Saving…");
+    clearTimeout(syncTimer); syncTimer = setTimeout(syncNow, 700);
+  };
+  document.addEventListener("focusout", function () {
+    setTimeout(function () { if (deferRender && !isTyping()) { deferRender = false; render(); } }, 50);
+  });
+  function startPolling() {
+    clearInterval(pollTimer);
+    pollTimer = setInterval(function () { if (!document.hidden) syncNow(); }, 4000);
+    syncNow();
+  }
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) syncNow(); });
+  window.addEventListener("online", syncNow);
+  /* --- setup / join / change-code panel --- */
+  var panel = document.getElementById("syncPanel");
+  function openPanel(mode) {
+    var h = '<div class="sync-card">';
+    if (mode === "setup") h += '<h3>Create your family code</h3><p>First phone: pick a private code (6+ characters). The other phone enters the same code once.</p>' +
+      '<input type="password" id="sc1" placeholder="Family code" autocomplete="new-password" /><input type="password" id="sc2" placeholder="Type it again" autocomplete="new-password" />' +
+      '<div class="sync-err" id="sErr"></div><button type="button" id="sGo" data-mode="setup">Start sharing</button>';
+    else if (mode === "join") h += '<h3>Enter your family code</h3><p>Same code the other phone set up. This phone will remember it.</p>' +
+      '<input type="password" id="sc1" placeholder="Family code" autocomplete="current-password" />' +
+      '<div class="sync-err" id="sErr"></div><button type="button" id="sGo" data-mode="join">Connect</button>';
+    else h += '<h3>Change family code</h3><p>Needs the current code. The other phone will be asked for the new one.</p>' +
+      '<input type="password" id="sc0" placeholder="Current code" autocomplete="current-password" /><input type="password" id="sc1" placeholder="New code" autocomplete="new-password" /><input type="password" id="sc2" placeholder="New code again" autocomplete="new-password" />' +
+      '<div class="sync-err" id="sErr"></div><button type="button" id="sGo" data-mode="change">Change code</button>' +
+      '<p class="fine">Forgot the current code? Ask Mike to have it reset; your lists stay safe on each phone.</p>';
+    h += ' <button type="button" class="secondary" id="sClose">Close</button></div>';
+    panel.innerHTML = h; panel.hidden = false;
+  }
+  document.getElementById("btnSyncSetup").addEventListener("click", function () {
+    if (!panel.hidden) { panel.hidden = true; return; }
+    if (code) return openPanel("change");
+    setSyncUi("pend", "Checking…");
+    rpc("glow_status", {}).then(function (r) { openPanel(r.is_set ? "join" : "setup"); setSyncUi("off", "Not synced"); })
+      .catch(function () { setSyncUi("off", "Offline · try again"); });
+  });
+  panel.addEventListener("click", function (e) {
+    if (e.target.id === "sClose") { panel.hidden = true; return; }
+    if (e.target.id !== "sGo") return;
+    var mode = e.target.getAttribute("data-mode"), err = document.getElementById("sErr");
+    var v1 = document.getElementById("sc1").value, v2El = document.getElementById("sc2");
+    if (v1.length < 6) { err.textContent = "Use at least 6 characters."; return; }
+    if (v2El && v2El.value !== v1) { err.textContent = "Codes don’t match."; return; }
+    err.textContent = "…";
+    var call = mode === "setup" ? rpc("glow_setup", { p_code: v1 })
+      : mode === "join" ? rpc("glow_pull", { p_code: v1, p_since: 0 })
+      : rpc("glow_change_code", { p_old: document.getElementById("sc0").value, p_new: v1 });
+    call.then(function (r) {
+      if (r.error) {
+        err.textContent = { bad_code: "That code doesn’t match.", already_set: "A code already exists — use Enter code.", locked: "Too many tries. Wait 10 minutes.", too_short: "Use at least 6 characters." }[r.error] || "Something went wrong.";
+        if (r.error === "already_set") setTimeout(function () { openPanel("join"); }, 1200);
+        return;
+      }
+      code = v1; try { localStorage.setItem(CODE_KEY, code); } catch (x) {}
+      panel.hidden = true;
+      showToast(mode === "change" ? "Code changed" : "Sharing on · this phone is connected");
+      startPolling();
+    }).catch(function () { err.textContent = "Offline — try again."; });
+  });
+  if (code) { setSyncUi("pend", "Syncing…"); startPolling(); } else setSyncUi("off", "Not synced · this phone only");
 
   /* Clear any leftover unlock session flag from the old password gate */
   try { sessionStorage.removeItem("erica_weekly_glow_unlocked_v1"); } catch (e) {}
