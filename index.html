@@ -378,6 +378,55 @@
     #toast { transition: none; }
   }
 
+  /* ---------- Projects tab ---------- */
+  .day-tab.proj-tab { min-width: 52px; font-size: 0.72rem; }
+  body.on-projects .week-bar, body.on-projects .toolbar, body.on-projects .week-meta { display: none; }
+  .proj-new { display: flex; gap: 8px; margin-bottom: 12px; }
+  .proj-new input { flex: 1; min-width: 0; }
+  .proj-in {
+    width: 100%; border: 1px solid #fbcfe8; border-radius: 12px; padding: 10px 12px;
+    font: inherit; font-size: 16px; color: var(--ink); background: rgba(255,255,255,0.92); box-sizing: border-box;
+  }
+  .proj-in:focus { outline: none; border-color: #f472b6; box-shadow: 0 0 0 3px rgba(244,114,182,0.2); }
+  .proj-name { font-weight: 700; font-size: 1rem; border-color: transparent; background: transparent; padding: 6px 8px; }
+  .proj-head { display: flex; align-items: center; gap: 8px; padding: 12px 12px 6px; }
+  .proj-head .proj-name { flex: 1; min-width: 0; }
+  .proj-count { flex: none; font-size: 0.8rem; font-weight: 700; color: #be185d; background: #fce7f3; border-radius: 999px; padding: 4px 10px; }
+  .proj-count.done { background: var(--mint); color: #047857; }
+  .proj-bar { height: 6px; margin: 0 14px 8px; border-radius: 99px; background: #fce7f3; overflow: hidden; }
+  .proj-bar > span { display: block; height: 100%; background: linear-gradient(90deg,#f9a8d4,#f472b6); border-radius: 99px; }
+  .proj-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 12px 8px; }
+  .proj-meta label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: .05em; color: #be185d; font-weight: 700; display: block; margin-bottom: 3px; }
+  .proj-meta .full { grid-column: 1 / -1; }
+  .proj-meta textarea.proj-in { min-height: 44px; resize: vertical; }
+  ul.subs { list-style: none; margin: 0; padding: 0 12px; }
+  li.sub-row { display: grid; grid-template-columns: 36px 1fr auto; gap: 6px; align-items: center; padding: 6px 0; border-top: 1px dashed #fbcfe8; }
+  li.sub-row input[type=checkbox] { width: 22px; height: 22px; accent-color: #ec4899; margin: 0 auto; }
+  li.sub-row.is-done .proj-in { text-decoration: line-through; opacity: 0.6; }
+  .sub-tools { display: flex; gap: 2px; }
+  .mini {
+    min-width: 36px; min-height: 36px; border: none; border-radius: 10px; background: #fff1f5; color: #9d174d;
+    font: inherit; font-size: 0.95rem; cursor: pointer; padding: 0 6px;
+  }
+  .mini:disabled { opacity: 0.3; }
+  .mini.plan { background: #fce7f3; font-weight: 700; font-size: 0.78rem; }
+  .planned-chip { grid-column: 2 / -1; font-size: 0.72rem; color: #be185d; opacity: 0.85; margin-top: -2px; }
+  .proj-actions { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 12px 14px; }
+  .proj-actions button { min-height: 40px; }
+  .plan-pick { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 8px; background: #fff7fa; border-radius: 12px; border: 1px solid #fbcfe8; }
+  .plan-pick .lbl { font-size: 0.78rem; font-weight: 700; color: #9d174d; width: 100%; }
+  .plan-pick .mini { min-width: 42px; min-height: 40px; }
+  .proj-empty { text-align: center; color: #9d174d; opacity: 0.8; padding: 18px; font-size: 0.9rem; }
+  li.row.from-proj textarea.item-text { background: #fff7fa; }
+  @media (max-width: 430px) {
+    .proj-meta { grid-template-columns: 1fr; }
+    .mini { min-width: 40px; }
+    .proj-word { display: none; }
+    .day-tab.proj-tab { min-width: 40px; font-size: 0.9rem; }
+    li.sub-row { grid-template-columns: 36px 1fr; }
+    li.sub-row .sub-tools { grid-column: 2; justify-content: flex-end; }
+  }
+
   @media print {
     body { background: #fff; }
     .deco, .toolbar, .remove, .add-row, .his, .week-bar, .day-tabs, #toast { display: none !important; }
@@ -465,6 +514,7 @@
   var KEY = "erica_weekly_glow_v3";
   var ARCHIVE_KEY = "erica_weekly_glow_archive_v1";
   var TAB_KEY = "erica_weekly_glow_tab_v1";
+  var PROJ_KEY = "erica_weekly_glow_projects_v1"; /* new key; existing keys untouched */
   var WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
   var DAY_SHORT = ["M", "T", "W", "T", "F", "S", "S"];
   var MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -673,7 +723,7 @@
   function loadActiveTab() {
     try {
       var t = localStorage.getItem(TAB_KEY);
-      if (t === "sparkle") return "sparkle";
+      if (t === "sparkle" || t === "projects") return t;
       if (WEEKDAYS.indexOf(t) >= 0) return t;
     } catch (e) {}
     var today = todayDayName();
@@ -725,7 +775,7 @@
 
   function rowHtml(section, dayOrNull, idx, item) {
     var dayAttr = dayOrNull != null ? (' data-day="' + dayOrNull + '"') : "";
-    return '<li class="row">' +
+    return '<li class="row' + (item.projId ? ' from-proj' : '') + '">' +
       '<input type="checkbox"' + (item.done ? " checked" : "") +
         ' data-sec="' + section + '"' + dayAttr + ' data-idx="' + idx + '" />' +
       '<textarea class="item-text" rows="1" data-sec="' + section + '"' + dayAttr +
@@ -774,6 +824,10 @@
     html += '<button type="button" class="day-tab sparkle-tab' + sparkActive +
       '" role="tab" aria-selected="' + (activeTab === "sparkle" ? "true" : "false") +
       '" data-tab="sparkle" title="Monthly & extras">✨</button>';
+    var projActive = activeTab === "projects" ? " active" : "";
+    html += '<button type="button" class="day-tab proj-tab' + projActive +
+      '" role="tab" aria-selected="' + (activeTab === "projects" ? "true" : "false") +
+      '" data-tab="projects" title="House projects">🏡<span class="proj-word"> Projects</span></button>';
     nav.innerHTML = html;
   }
 
@@ -783,6 +837,15 @@
     renderDayTabs();
 
     var html = "";
+    document.body.classList.toggle("on-projects", activeTab === "projects");
+    if (activeTab === "projects") {
+      root.innerHTML = renderProjects();
+      updatePastSelect(); updateStatus(); refreshWeeklyQuote();
+      var focusEl = pendingFocus && root.querySelector(pendingFocus);
+      pendingFocus = null;
+      if (focusEl) focusEl.focus();
+      return;
+    }
     if (activeTab === "sparkle") {
       html += '<p class="day-panel-title">Sparkle extras <span class="soft">· monthly & this week</span></p>';
       html += renderSubcard("Monthly / quarterly sparkle", "🌸", "monthly", null,
@@ -886,7 +949,11 @@
     var t = e.target;
     if (!t.matches('input[type=checkbox][data-sec]')) return;
     var item = getItem(t.getAttribute("data-sec"), t.getAttribute("data-day"), +t.getAttribute("data-idx"));
-    if (item) { item.done = !!t.checked; persist(); }
+    if (item) {
+      item.done = !!t.checked;
+      if (item.projId) syncFromPlanner(item);
+      persist();
+    }
   });
   root.addEventListener("input", function (e) {
     var t = e.target;
@@ -952,6 +1019,229 @@
     var key = e.target.value;
     if (!key) return;
     loadPastWeek(key);
+  });
+
+  /* ================= Projects ================= */
+  var pendingFocus = null;
+  var planOpen = null; /* "pid" or "pid:sid" */
+  function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+  function loadProjects() {
+    try {
+      var o = JSON.parse(localStorage.getItem(PROJ_KEY) || "null");
+      if (!o || !Array.isArray(o.projects)) return { projects: [] };
+      o.projects.forEach(function (p) {
+        if (!p.id) p.id = uid();
+        if (!Array.isArray(p.subs)) p.subs = [];
+        p.subs.forEach(function (x) { if (!x.id) x.id = uid(); x.done = !!x.done; });
+      });
+      return o;
+    } catch (e) { return { projects: [] }; }
+  }
+  var proj = loadProjects();
+  function saveProjects() { try { localStorage.setItem(PROJ_KEY, JSON.stringify(proj)); } catch (e) {} }
+  function findProj(id) { for (var i = 0; i < proj.projects.length; i++) if (proj.projects[i].id === id) return proj.projects[i]; return null; }
+  function findSub(p, sid) { if (!p) return null; for (var i = 0; i < p.subs.length; i++) if (p.subs[i].id === sid) return p.subs[i]; return null; }
+  function esc(v) { return String(v == null ? "" : v).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+
+  /* Every planner list that can hold project items (working week) */
+  function eachPlannerItem(fn) {
+    WEEKDAYS.forEach(function (d) {
+      ["cleaning", "workouts"].forEach(function (sec) {
+        (state[sec][d] || []).forEach(function (it) { fn(it, d); });
+      });
+    });
+    (state.extras || []).forEach(function (it) { fn(it, null); });
+    (state.monthly || []).forEach(function (it) { fn(it, null); });
+  }
+  function projDone(p) { return p.subs.length ? p.subs.every(function (x) { return x.done; }) : !!p.done; }
+  function pushProjToPlanner(p) {
+    var all = projDone(p);
+    eachPlannerItem(function (it) {
+      if (it.projId !== p.id) return;
+      if (it.subId) { var s = findSub(p, it.subId); if (s) it.done = s.done; }
+      else it.done = all;
+    });
+  }
+  function syncFromPlanner(item) {
+    var p = findProj(item.projId);
+    if (!p) return;
+    if (item.subId) { var s = findSub(p, item.subId); if (s) s.done = item.done; }
+    else { if (p.subs.length) p.subs.forEach(function (x) { x.done = item.done; }); p.done = item.done; }
+    p.done = projDone(p);
+    saveProjects();
+    pushProjToPlanner(p);
+  }
+  function plannedDays(pid, sid) {
+    var days = [];
+    eachPlannerItem(function (it, d) {
+      if (it.projId === pid && (it.subId || null) === (sid || null) && d && days.indexOf(d) < 0) days.push(d);
+    });
+    return days;
+  }
+  function planIt(pid, sid, day) {
+    var p = findProj(pid); if (!p) return;
+    var s = sid ? findSub(p, sid) : null;
+    var name = (p.name || "Project").trim();
+    var text = "🏡 " + name + (s ? " — " + (s.text || "subtask") : "");
+    var list = state.cleaning[day];
+    /* reuse a blank line if the day only has an empty one */
+    var item = { text: text, done: s ? s.done : projDone(p), projId: pid, subId: sid || null };
+    if (list.length === 1 && !String(list[0].text || "").trim() && !list[0].done) list[0] = item;
+    else list.push(item);
+    persist();
+    planOpen = null;
+    render();
+    showToast("Planned for " + day + " · " + name);
+  }
+  function weekOptions(sel) {
+    var html = '<option value="">Someday</option>';
+    var mon = parseKey(mondayKey(new Date()));
+    var seen = false;
+    for (var i = 0; i < 16; i++) {
+      var k = mondayKey(new Date(mon.getFullYear(), mon.getMonth(), mon.getDate() + i * 7));
+      if (k === sel) seen = true;
+      html += '<option value="' + k + '"' + (k === sel ? " selected" : "") + '>' + (i === 0 ? "This week · " : "") + weekOfLabelFromKey(k) + '</option>';
+    }
+    if (sel && !seen) html += '<option value="' + esc(sel) + '" selected>' + esc(weekOfLabelFromKey(sel)) + '</option>';
+    return html;
+  }
+  function pickerHtml(pid, sid) {
+    var h = '<div class="plan-pick"><span class="lbl">Add to which day? (goes on that day’s house list)</span>';
+    WEEKDAYS.forEach(function (d) {
+      h += '<button type="button" class="mini" data-pact="planday" data-pid="' + pid + '"' + (sid ? ' data-sid="' + sid + '"' : '') + ' data-day="' + d + '">' + d.slice(0, 3) + '</button>';
+    });
+    return h + '<button type="button" class="mini" data-pact="plancancel">Cancel</button></div>';
+  }
+  function renderProjects() {
+    var h = '<p class="day-panel-title">House projects <span class="soft">· plan big things, then drop steps into the week</span></p>';
+    h += '<div class="proj-new"><input class="proj-in" id="newProjName" type="text" placeholder="New project, e.g. Clean the garage" />' +
+      '<button type="button" data-pact="addproj">+ Add</button></div>';
+    if (!proj.projects.length) h += '<div class="subcard"><div class="proj-empty">No projects yet — add one above 🌸</div></div>';
+    proj.projects.forEach(function (p, pi) {
+      var n = p.subs.length, d = p.subs.filter(function (x) { return x.done; }).length;
+      var pct = n ? Math.round(d / n * 100) : (p.done ? 100 : 0);
+      var pdays = plannedDays(p.id, null);
+      h += '<section class="subcard proj" data-pid="' + p.id + '">' +
+        '<div class="proj-head"><span class="emoji">🏡</span>' +
+        '<input class="proj-in proj-name" data-pf="name" data-pid="' + p.id + '" value="' + esc(p.name) + '" placeholder="Project name" aria-label="Project name" />' +
+        '<span class="proj-count' + (n && d === n ? ' done' : '') + '">' + d + '/' + n + '</span></div>' +
+        '<div class="proj-bar"><span style="width:' + pct + '%"></span></div>' +
+        '<div class="proj-meta">' +
+          '<div><label>Room / area</label><input class="proj-in" data-pf="room" data-pid="' + p.id + '" value="' + esc(p.room) + '" placeholder="Garage, kitchen…" /></div>' +
+          '<div><label>Target week</label><select class="proj-in" data-pf="week" data-pid="' + p.id + '">' + weekOptions(p.week || "") + '</select></div>' +
+          '<div class="full"><label>Notes</label><textarea class="proj-in" rows="2" data-pf="notes" data-pid="' + p.id + '" placeholder="Supplies, ideas, who helps…">' + esc(p.notes) + '</textarea></div>' +
+        '</div><ul class="subs">';
+      p.subs.forEach(function (s, si) {
+        var days = plannedDays(p.id, s.id);
+        h += '<li class="sub-row' + (s.done ? ' is-done' : '') + '">' +
+          '<input type="checkbox" data-pact="subdone" data-pid="' + p.id + '" data-sid="' + s.id + '"' + (s.done ? ' checked' : '') + ' aria-label="Done" />' +
+          '<input class="proj-in" data-pf="subtext" data-pid="' + p.id + '" data-sid="' + s.id + '" value="' + esc(s.text) + '" placeholder="Step…" />' +
+          '<div class="sub-tools">' +
+            '<button type="button" class="mini plan" data-pact="planopen" data-pid="' + p.id + '" data-sid="' + s.id + '" title="Plan it">📅</button>' +
+            '<button type="button" class="mini" data-pact="subup" data-pid="' + p.id + '" data-sid="' + s.id + '"' + (si === 0 ? ' disabled' : '') + ' title="Move up">↑</button>' +
+            '<button type="button" class="mini" data-pact="subdown" data-pid="' + p.id + '" data-sid="' + s.id + '"' + (si === n - 1 ? ' disabled' : '') + ' title="Move down">↓</button>' +
+            '<button type="button" class="mini" data-pact="subdel" data-pid="' + p.id + '" data-sid="' + s.id + '" title="Delete step">×</button>' +
+          '</div>' +
+          (days.length ? '<div class="planned-chip">📅 In planner: ' + days.join(", ") + '</div>' : '') +
+          (planOpen === p.id + ":" + s.id ? pickerHtml(p.id, s.id) : '') +
+          '</li>';
+      });
+      h += '</ul><div class="proj-actions">' +
+        '<button type="button" class="secondary" data-pact="addsub" data-pid="' + p.id + '">+ Add step</button>' +
+        '<button type="button" data-pact="planopen" data-pid="' + p.id + '">📅 Plan whole project</button>' +
+        '<button type="button" class="secondary" data-pact="delproj" data-pid="' + p.id + '">Delete project</button>' +
+        (pdays.length ? '<div class="planned-chip" style="width:100%">📅 Whole project in planner: ' + pdays.join(", ") + '</div>' : '') +
+        (planOpen === p.id ? pickerHtml(p.id, null) : '') +
+        '</div></section>';
+    });
+    return h;
+  }
+  function addProject() {
+    var inp = document.getElementById("newProjName");
+    var name = (inp && inp.value || "").trim();
+    if (!name) { if (inp) inp.focus(); return; }
+    var p = { id: uid(), name: name, room: "", notes: "", week: "", done: false, subs: [], created: new Date().toISOString() };
+    proj.projects.unshift(p);
+    saveProjects();
+    pendingFocus = '.proj[data-pid="' + p.id + '"] [data-pact="addsub"]';
+    render();
+    showToast("Project added · " + name);
+  }
+  root.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && e.target.id === "newProjName") { e.preventDefault(); addProject(); }
+    if (e.key === "Enter" && e.target.getAttribute && e.target.getAttribute("data-pf") === "subtext") {
+      e.preventDefault();
+      var p = findProj(e.target.getAttribute("data-pid"));
+      if (!p) return;
+      var idx = p.subs.indexOf(findSub(p, e.target.getAttribute("data-sid")));
+      var ns = { id: uid(), text: "", done: false };
+      p.subs.splice(idx + 1, 0, ns); p.done = projDone(p); saveProjects();
+      pendingFocus = '[data-pf="subtext"][data-sid="' + ns.id + '"]';
+      render();
+    }
+  });
+  function relabelPlanner(p) {
+    eachPlannerItem(function (it) {
+      if (it.projId !== p.id) return;
+      var s = it.subId ? findSub(p, it.subId) : null;
+      it.text = "🏡 " + (p.name || "Project").trim() + (s ? " — " + (s.text || "subtask") : "");
+    });
+    persist();
+  }
+  root.addEventListener("input", function (e) {
+    var t = e.target, f = t.getAttribute && t.getAttribute("data-pf");
+    if (!f) return;
+    var p = findProj(t.getAttribute("data-pid")); if (!p) return;
+    if (f === "subtext") { var s = findSub(p, t.getAttribute("data-sid")); if (s) s.text = t.value; }
+    else if (f === "name") p.name = t.value;
+    else if (f === "room") p.room = t.value;
+    else if (f === "notes") p.notes = t.value;
+    else if (f === "week") p.week = t.value;
+    saveProjects();
+    if (f === "name" || f === "subtext") relabelPlanner(p);
+  });
+  root.addEventListener("change", function (e) {
+    var t = e.target;
+    if (t.getAttribute && t.getAttribute("data-pf") === "week") {
+      var p = findProj(t.getAttribute("data-pid")); if (p) { p.week = t.value; saveProjects(); }
+      return;
+    }
+    if (!(t.getAttribute && t.getAttribute("data-pact") === "subdone")) return;
+    var p2 = findProj(t.getAttribute("data-pid")), s = findSub(p2, t.getAttribute("data-sid"));
+    if (!s) return;
+    s.done = !!t.checked; p2.done = projDone(p2);
+    saveProjects(); pushProjToPlanner(p2); persist(); render();
+  });
+  root.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-pact]");
+    if (!b || b.tagName === "INPUT") return;
+    var act = b.getAttribute("data-pact"), pid = b.getAttribute("data-pid"), sid = b.getAttribute("data-sid");
+    var p = pid ? findProj(pid) : null;
+    if (act === "addproj") return addProject();
+    if (act === "plancancel") { planOpen = null; return render(); }
+    if (act === "planopen") { var k = sid ? pid + ":" + sid : pid; planOpen = planOpen === k ? null : k; return render(); }
+    if (act === "planday") return planIt(pid, sid, b.getAttribute("data-day"));
+    if (!p) return;
+    var i = sid ? p.subs.indexOf(findSub(p, sid)) : -1;
+    if (act === "addsub") {
+      var ns = { id: uid(), text: "", done: false };
+      p.subs.push(ns); p.done = false;
+      pendingFocus = '[data-pf="subtext"][data-sid="' + ns.id + '"]';
+    } else if (act === "subup" && i > 0) {
+      p.subs.splice(i - 1, 0, p.subs.splice(i, 1)[0]);
+    } else if (act === "subdown" && i >= 0 && i < p.subs.length - 1) {
+      p.subs.splice(i + 1, 0, p.subs.splice(i, 1)[0]);
+    } else if (act === "subdel" && i >= 0) {
+      var st = p.subs[i];
+      if ((st.text || "").trim() && !confirm("Delete step “" + st.text + "”?")) return;
+      p.subs.splice(i, 1); p.done = projDone(p);
+    } else if (act === "delproj") {
+      if (!confirm("Delete project “" + (p.name || "Untitled") + "” and its steps? (Lines already in the planner stay.)")) return;
+      proj.projects.splice(proj.projects.indexOf(p), 1);
+      eachPlannerItem(function (it) { if (it.projId === p.id) { delete it.projId; delete it.subId; } });
+      persist();
+    } else return;
+    saveProjects(); render();
   });
 
   /* Clear any leftover unlock session flag from the old password gate */
